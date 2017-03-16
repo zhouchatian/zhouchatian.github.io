@@ -6,16 +6,37 @@
   
   <title>Hexo更换主题 | Mr.Robot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="技术宅">
+  <meta name="description" content="环境准备
+安装git,自行百度
+安装Node.js通过Homebrew或者从官网上下载安装包的方式都可以进行安装。安装完毕后打开终端，检查是否安装正确。
+
+123node -vnpm -vgit --version
+安装Hexo创建一个目录blog(你也可以改为你喜欢的名字)，然后执行以下指令。（以下指令均用Git Bash 终端下）
+1npm install -g hexo-cli
+初始化1he">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo更换主题">
 <meta property="og:url" content="http://yoursite.com/2017/03/16/Hexo更换主题/index.html">
 <meta property="og:site_name" content="Mr.Robot">
-<meta property="og:description" content="技术宅">
-<meta property="og:updated_time" content="2017-03-16T15:05:30.390Z">
+<meta property="og:description" content="环境准备
+安装git,自行百度
+安装Node.js通过Homebrew或者从官网上下载安装包的方式都可以进行安装。安装完毕后打开终端，检查是否安装正确。
+
+123node -vnpm -vgit --version
+安装Hexo创建一个目录blog(你也可以改为你喜欢的名字)，然后执行以下指令。（以下指令均用Git Bash 终端下）
+1npm install -g hexo-cli
+初始化1he">
+<meta property="og:updated_time" content="2017-03-16T15:31:43.355Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo更换主题">
-<meta name="twitter:description" content="技术宅">
+<meta name="twitter:description" content="环境准备
+安装git,自行百度
+安装Node.js通过Homebrew或者从官网上下载安装包的方式都可以进行安装。安装完毕后打开终端，检查是否安装正确。
+
+123node -vnpm -vgit --version
+安装Hexo创建一个目录blog(你也可以改为你喜欢的名字)，然后执行以下指令。（以下指令均用Git Bash 终端下）
+1npm install -g hexo-cli
+初始化1he">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Robot" type="application/atom+xml">
   
@@ -95,12 +116,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><ol>
+<li>安装git,自行百度</li>
+<li>安装Node.js通过Homebrew或者从官网上下载安装包的方式都可以进行安装。<br>安装完毕后打开终端，检查是否安装正确。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">node -v</div><div class="line">npm -v</div><div class="line">git --version</div></pre></td></tr></table></figure>
+<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><p>创建一个目录blog(你也可以改为你喜欢的名字)，然后执行以下指令。（以下指令均用Git Bash 终端下）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
+<h1 id="本地部署测试"><a href="#本地部署测试" class="headerlink" title="本地部署测试"></a>本地部署测试</h1><p>到此你的Hexo 本地已经安装完成在Git Bash 终端下输入以下指令即可运行本地测试服务。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure></p>
+<p>服务器运行起来之后，打开浏览器，输入<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a> 即可打开Hexo的默认页，如图<br>ctrl + C 结束本地预览。</p>
+<h1 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h1><ul>
+<li>首先你的有个github 账号，注册github账号自行百度。</li>
+<li>在github创建一个repository 名字为你的organization名字 .github.io</li>
+<li>你安装的hexo目录（就刚才建的blog）下的_config.yml文件翻到最下面，改成我这样子的（冒号后面有空隔）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/zhouchatian/zhouchatian.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<p>repository就是你刚才在github上创建的repository 的ssh。</p>
+<h1 id="推送到github"><a href="#推送到github" class="headerlink" title="推送到github"></a>推送到github</h1><p>1.首先安装git 一个插件<br>执行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>2.推送到个ithub<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure></p>
+<p>到此你的Hexo已经完成了，那么开始写博客吧</p>
+<h1 id="新建博客"><a href="#新建博客" class="headerlink" title="新建博客"></a>新建博客</h1><p>1.命令生成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;文章名字&quot;</div></pre></td></tr></table></figure></p>
+<p>新生成的文章都会保存到/source/_posts 目录下。打开自动生成的文档模板，内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: testMyBlog</div><div class="line">date: 2017-03-09 07:20:04</div><div class="line">tags:</div><div class="line">---</div></pre></td></tr></table></figure></p>
+<p>可以在这用Markdown 写作工具打开，编写文章。<br>2.文档拷贝</p>
+<h1 id="生成博客"><a href="#生成博客" class="headerlink" title="生成博客"></a>生成博客</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure>
+<p>在这之前最好执行下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo clean</div></pre></td></tr></table></figure></p>
+<p>3.发布到github上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure></p>
+<h1 id="常用快捷命令"><a href="#常用快捷命令" class="headerlink" title="常用快捷命令"></a>常用快捷命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;postName&quot; //新建文章</div><div class="line">hexo new page&quot;pageNme&quot; //新建页面</div><div class="line">hexo server //开启预览访问端口（默认端口4000，`ctrl+c`关闭server）</div><div class="line">hexo generate //生成静态页面至public目录</div><div class="line">hexo deploy //将deploy 目录部署到服务器</div><div class="line">hexo help //查看帮助</div><div class="line">hexo version //查看Hexo的版本</div></pre></td></tr></table></figure>
+<p>对应的快捷指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">hexo n ==hexo new </div><div class="line">hexo g ==hexo generate</div><div class="line">hexo s ==hexo server</div><div class="line">hexo d ==hexo deploy</div><div class="line">hexo h ==hexo help</div></pre></td></tr></table></figure></p>
+<h1 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h1><p>git clone git@github.com:wuchong/jacman.git<br>cd themes/jacman<br>git pull origin master</p>
+<h1 id="更改自己的顶级域名"><a href="#更改自己的顶级域名" class="headerlink" title="更改自己的顶级域名"></a>更改自己的顶级域名</h1><p>vip1.alidns.com/vip2.alidns.com</p>
+<h1 id="添加评论"><a href="#添加评论" class="headerlink" title="添加评论"></a>添加评论</h1><h1 id="添加统计"><a href="#添加统计" class="headerlink" title="添加统计"></a>添加统计</h1>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2017/03/16/Hexo更换主题/" data-id="cj0cjp98j0000ukx3qsmxc0f7" class="article-share-link" data-share="baidu" data-title="Hexo更换主题">分享到</a>
+        <a data-url="http://yoursite.com/2017/03/16/Hexo更换主题/" data-id="cj0cjyj3e0002n0x3v4v3580d" class="article-share-link" data-share="baidu" data-title="Hexo更换主题">分享到</a>
       
 
       
