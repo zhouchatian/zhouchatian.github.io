@@ -101,14 +101,45 @@
         <p>不多说先上效果图</p>
 <p><img src="https://github.com/TheSadFrog/BlogImages/blob/master/BaseAndroid/BottomNavigationView.gif" alt="zhouchatian.com"></p>
 <h1 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h1><blockquote>
-<p>compile ‘com.android.support:appcompat-v7:25.0.0’</p>
+<p>compile ‘com.android.support:design:25.0.0’</p>
+</blockquote>
+<h1 id="添加控件"><a href="#添加控件" class="headerlink" title="添加控件"></a>添加控件</h1><p>在布局文件添加BottomNavigationView组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</div><div class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;match_parent&quot;</div><div class="line">    tools:context=&quot;com.zhouchatian.baseandroid.MainActivity&quot;&gt;</div><div class="line"></div><div class="line">    &lt;TextView</div><div class="line">        android:id=&quot;@+id/text&quot;</div><div class="line">        android:layout_width=&quot;wrap_content&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:textSize=&quot;18sp&quot;</div><div class="line">        android:layout_centerInParent=&quot;true&quot;/&gt;</div><div class="line"></div><div class="line">    &lt;android.support.design.widget.BottomNavigationView</div><div class="line">        android:id=&quot;@+id/navigation&quot;</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:layout_alignParentBottom=&quot;true&quot;</div><div class="line">        app:menu=&quot;@menu/navigation&quot;/&gt;</div><div class="line"></div><div class="line">&lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure>
+<h1 id="添加按钮"><a href="#添加按钮" class="headerlink" title="添加按钮"></a>添加按钮</h1><p>在res下创建navigation.xml 放在menu文件夹下，如果没有就创建一个menu文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line">    &lt;item</div><div class="line">        android:id=&quot;@+id/bottom_home&quot;</div><div class="line">        android:icon=&quot;@mipmap/ic_home_white_24dp&quot;</div><div class="line">        android:title=&quot;首页&quot; /&gt;</div><div class="line">    &lt;item</div><div class="line">        android:id=&quot;@+id/bottom_book&quot;</div><div class="line">        android:icon=&quot;@mipmap/ic_book_white_24dp&quot;</div><div class="line">        android:title=&quot;书本&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;item</div><div class="line">        android:id=&quot;@+id/bottom_collection&quot;</div><div class="line">        android:icon=&quot;@mipmap/ic_favorite_white_24dp&quot;</div><div class="line">        android:title=&quot;收藏&quot;/&gt;</div><div class="line"></div><div class="line">    &lt;item</div><div class="line">        android:id=&quot;@+id/bottom_setting&quot;</div><div class="line">        android:icon=&quot;@mipmap/ic_tv_white_24dp&quot;</div><div class="line">        android:title=&quot;设置&quot; /&gt;</div><div class="line">&lt;/menu&gt;</div></pre></td></tr></table></figure>
+<p>要说下的这个按钮只能创建3个到5个，多了或少了都会报错。</p>
+<h1 id="添加监听"><a href="#添加监听" class="headerlink" title="添加监听"></a>添加监听</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class MainActivity extends AppCompatActivity &#123;</div><div class="line">    private TextView mTextView;</div><div class="line">    private BottomNavigationView mNavigationView;</div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        mTextView = (TextView) findViewById(R.id.text);</div><div class="line">        mNavigationView = (BottomNavigationView) findViewById(R.id.navigation);</div><div class="line">        mNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() &#123;</div><div class="line">            @Override</div><div class="line">            public boolean onNavigationItemSelected(@NonNull MenuItem item) &#123;</div><div class="line">                mTextView.setText(item.getTitle().toString().toUpperCase());</div><div class="line">                return true;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样一个建的底部导航就做好了，控件使用简单，带来局限性，只有修改一些。</p>
+<h1 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h1><p>app:itemIconTint=”#FFFFFF”设置图标的颜色</p>
+<p>app:itemTextColor=”#FFFFFF”设置文字的颜色</p>
+<p>app:itemBackground=”@color/colorPrimary” 设置背景色</p>
+<p>如果不设置就是上图的颜色，官方提供了三个颜色</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2622167-41b6b08439b239af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2017-04-25_211939.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;android.support.design.widget.BottomNavigationView</div><div class="line">        android:id=&quot;@+id/navigation&quot;</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:layout_alignParentBottom=&quot;true&quot;</div><div class="line">        app:itemIconTint=&quot;#FFFFFF&quot;</div><div class="line">        app:itemTextColor=&quot;#FFFFFF&quot;</div><div class="line">        app:itemBackground=&quot;@color/colorPrimary&quot;</div><div class="line">        app:menu=&quot;@menu/navigation&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>当然你也可以在代码中设置</p>
+<blockquote>
+<p>setItemBackgroundResource(int  resId)<br>setItemIconTintList(ColorStateList  tint)<br>setItemTextColor(ColorStateList  textColor)</p>
+</blockquote>
+<p>在实际开发中使用item.getItemId()使用switch来判断选中了哪一个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">mNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() &#123;</div><div class="line">            @Override</div><div class="line">            public boolean onNavigationItemSelected(@NonNull MenuItem item) &#123;</div><div class="line">                switch (item.getItemId()) &#123;</div><div class="line">                    case R.id.bottom_home:</div><div class="line">                        mTextView.setText(item.getTitle());</div><div class="line">                        break;</div><div class="line">                    case R.id.bottom_book:</div><div class="line">                        mTextView.setText(item.getTitle());</div><div class="line">                        break;</div><div class="line">                    case R.id.bottom_collection:</div><div class="line">                        mTextView.setText(item.getTitle());</div><div class="line">                        break;</div><div class="line">                    case R.id.bottom_setting:</div><div class="line">                        mTextView.setText(item.getTitle());</div><div class="line">                        break;</div><div class="line">                &#125;</div><div class="line">                return true;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
+<p>其实这个还有另外一个监听</p>
+<blockquote>
+<p>BottomNavigationView.OnNavigationItemReselectedListener</p>
+</blockquote>
+<p>官方解释用于重选的监听，特意提下是希望各位用的时候别选错了。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="1-默认选中的是第一个，但是我们要默认选中其他的怎么办？"><a href="#1-默认选中的是第一个，但是我们要默认选中其他的怎么办？" class="headerlink" title="1. 默认选中的是第一个，但是我们要默认选中其他的怎么办？"></a>1. 默认选中的是第一个，但是我们要默认选中其他的怎么办？</h3><p>官方提供了两个方法</p>
+<blockquote>
+<p>getSelectedItemId(int itemId)</p>
+</blockquote>
+<p>获得选中item的id，这时我们就可以使用另一个方法</p>
+<blockquote>
+<p>setSelectedItemId(int itemId)</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/04/24/BottomNavigationView的使用/" data-id="cj1w9cp6n00019gx3fhy4tsne" class="article-share-link" data-share="baidu" data-title="BottomNavigationView 的使用">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/04/24/BottomNavigationView的使用/" data-id="cj1xm50r3000388x3gh6zyjri" class="article-share-link" data-share="baidu" data-title="BottomNavigationView 的使用">分享到</a>
       
 
       
@@ -150,7 +181,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/04/10/测试，怎么又不行了/" data-id="cj1w9cp6z000a9gx3doxp6so6" class="article-share-link" data-share="baidu" data-title="测试，怎么又不行了">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/04/10/测试，怎么又不行了/" data-id="cj1xm50rj000b88x3zf3431qi" class="article-share-link" data-share="baidu" data-title="测试，怎么又不行了">分享到</a>
       
 
       
@@ -202,7 +233,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/04/08/git提交代码三部曲/" data-id="cj1w9cp6y00099gx3h2df7dww" class="article-share-link" data-share="baidu" data-title="git提交代码三部曲">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/04/08/git提交代码三部曲/" data-id="cj1xm50r3000688x38csc58mj" class="article-share-link" data-share="baidu" data-title="git提交代码三部曲">分享到</a>
       
 
       
@@ -248,7 +279,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/25/新建分类/" data-id="cj1w9cp70000b9gx3qqleb322" class="article-share-link" data-share="baidu" data-title="新建分类">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/25/新建分类/" data-id="cj1xm50rj000c88x3d66iqqm5" class="article-share-link" data-share="baidu" data-title="新建分类">分享到</a>
       
 
       
@@ -311,7 +342,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/16/Android Stuido 无线调试/" data-id="cj1w9cp6q00039gx3s4ityikg" class="article-share-link" data-share="baidu" data-title="Android Stuido 无线调试">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/16/Android Stuido 无线调试/" data-id="cj1xm50r3000188x3hqz6y8qv" class="article-share-link" data-share="baidu" data-title="Android Stuido 无线调试">分享到</a>
       
 
       
@@ -354,7 +385,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/16/Bug/" data-id="cj1w9cp6s00059gx3h4i3iym0" class="article-share-link" data-share="baidu" data-title="Bug">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/16/Bug/" data-id="cj1xm50r3000588x3b4zkr1in" class="article-share-link" data-share="baidu" data-title="Bug">分享到</a>
       
 
       
@@ -402,7 +433,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/16/Hexo更换主题/" data-id="cj1w9cp6v00079gx3hkwyp2pz" class="article-share-link" data-share="baidu" data-title="Hexo更换主题">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/16/Hexo更换主题/" data-id="cj1xm50rj000788x3c7hdxqc5" class="article-share-link" data-share="baidu" data-title="Hexo更换主题">分享到</a>
       
 
       
@@ -480,7 +511,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/09/Markdown简明语法/" data-id="cj1w9cp6y00089gx3fqnzou1s" class="article-share-link" data-share="baidu" data-title="Markdown简明语法">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/09/Markdown简明语法/" data-id="cj1xm50rj000a88x3k8wqvi9h" class="article-share-link" data-share="baidu" data-title="Markdown简明语法">分享到</a>
       
 
       
@@ -551,7 +582,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/09/Hexo搭建个人博客/" data-id="cj1w9cp6v00069gx37aq48wc5" class="article-share-link" data-share="baidu" data-title="Hexo搭建个人博客">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/09/Hexo搭建个人博客/" data-id="cj1xm50rj000888x311jwpxdq" class="article-share-link" data-share="baidu" data-title="Hexo搭建个人博客">分享到</a>
       
 
       
@@ -602,7 +633,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/09/hello-world/" data-id="cj1w9cp71000c9gx3eci4ivvv" class="article-share-link" data-share="baidu" data-title="Hello World">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/09/hello-world/" data-id="cj1xm50rj000988x3g5jwaq5o" class="article-share-link" data-share="baidu" data-title="Hello World">分享到</a>
       
 
       
