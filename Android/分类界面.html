@@ -1,30 +1,22 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   
-  <title>git使用的tag | Mr.Robot</title>
+  <title>���ڿ����� | Mr.Robot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Tag类似于branch,区别是branch是可以不断改变、Merge的而Tag不行。Tag可以认为是一个快照、一个记录点，用于记录某个commit点或分支的历史快照。Tag通常打开Master分支上，以保证代码的准确性。
-创建Tag1git tag &amp;lt;Tag名字&amp;gt;
-这样创建的tag,默认会记录在最后提交的上。也可以通过commit id 指定要创建Tag 的地方。
-1git tag">
-<meta property="og:type" content="article">
-<meta property="og:title" content="git使用的tag">
-<meta property="og:url" content="https://github.com/TheSadFrog/2017/05/10/git使用的tag/index.html">
+  <meta name="description" content="�����ķ���ҳ��">
+<meta property="og:type" content="website">
+<meta property="og:title" content="���ڿ�����">
+<meta property="og:url" content="https://github.com/TheSadFrog/Android/分类界面.html">
 <meta property="og:site_name" content="Mr.Robot">
-<meta property="og:description" content="Tag类似于branch,区别是branch是可以不断改变、Merge的而Tag不行。Tag可以认为是一个快照、一个记录点，用于记录某个commit点或分支的历史快照。Tag通常打开Master分支上，以保证代码的准确性。
-创建Tag1git tag &amp;lt;Tag名字&amp;gt;
-这样创建的tag,默认会记录在最后提交的上。也可以通过commit id 指定要创建Tag 的地方。
-1git tag">
-<meta property="og:updated_time" content="2017-05-10T14:57:29.689Z">
+<meta property="og:description" content="�����ķ���ҳ��">
+<meta property="og:updated_time" content="2017-05-19T13:16:03.376Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git使用的tag">
-<meta name="twitter:description" content="Tag类似于branch,区别是branch是可以不断改变、Merge的而Tag不行。Tag可以认为是一个快照、一个记录点，用于记录某个commit点或分支的历史快照。Tag通常打开Master分支上，以保证代码的准确性。
-创建Tag1git tag &amp;lt;Tag名字&amp;gt;
-这样创建的tag,默认会记录在最后提交的上。也可以通过commit id 指定要创建Tag 的地方。
-1git tag">
+<meta name="twitter:title" content="���ڿ�����">
+<meta name="twitter:description" content="�����ķ���ҳ��">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Robot" type="application/atom+xml">
   
@@ -84,10 +76,10 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main"><article id="post-git使用的tag" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/10/git使用的tag/" class="article-date">
-  <time datetime="2017-05-10T14:20:49.000Z" itemprop="datePublished">2017-05-10</time>
+    <a href="/Android/分类界面.html" class="article-date">
+  <time datetime="2017-05-19T13:15:04.000Z" itemprop="datePublished">2017-05-19</time>
 </a>
     
   </div>
@@ -98,7 +90,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      git使用的tag
+      ���ڿ�����
     </h1>
   
 
@@ -106,31 +98,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Tag类似于branch,区别是branch是可以不断改变、Merge的而Tag不行。Tag可以认为是一个快照、一个记录点，用于记录某个commit点或分支的历史快照。Tag通常打开Master分支上，以保证代码的准确性。</p>
-<h1 id="创建Tag"><a href="#创建Tag" class="headerlink" title="创建Tag"></a>创建Tag</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag &lt;Tag名字&gt;</div></pre></td></tr></table></figure>
-<p>这样创建的tag,默认会记录在最后提交的上。也可以通过commit id 指定要创建Tag 的地方。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag &lt;Tag 名字&gt; &lt;SHA-1 Code&gt;</div></pre></td></tr></table></figure>
-<h1 id="创建带标签的Tag"><a href="#创建带标签的Tag" class="headerlink" title="创建带标签的Tag"></a>创建带标签的Tag</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag -a &lt;Tag名字&gt; -m &lt;注释文字&gt; &lt;SHA-1 Code&gt;</div></pre></td></tr></table></figure>
-<p>SHA-1 Code 并不需要全部写完，只要写前6、7 位就差不多了，Git就可以查找到相应的id了。</p>
-<h1 id="查看Tag"><a href="#查看Tag" class="headerlink" title="查看Tag"></a>查看Tag</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag</div></pre></td></tr></table></figure>
-<p>查看指定Tag的详细信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git show &lt;Tag 名字&gt;</div></pre></td></tr></table></figure></p>
-<h1 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag -d &lt;Tag 名字&gt;</div></pre></td></tr></table></figure>
-<h1 id="推送Tag到远程"><a href="#推送Tag到远程" class="headerlink" title="推送Tag到远程"></a>推送Tag到远程</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin &lt;Tag 名字&gt;</div></pre></td></tr></table></figure>
-<p>或者通过–tags 参数来推送所有本地的Tag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin --tags</div></pre></td></tr></table></figure>
-<h1 id="删除远程Tag"><a href="#删除远程Tag" class="headerlink" title="删除远程Tag"></a>删除远程Tag</h1><p>当本地Tag已经Push到远程代码仓库后，再要删除这个Tag,就必须删除本地Tag.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag -d &lt;Tag 名字&gt;</div></pre></td></tr></table></figure></p>
-<p>删除本地Tag后，再重新Push到远程的代码仓库。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin :refs/tags/&lt;Tag 名字&gt;</div></pre></td></tr></table></figure>
+        <p>�����ķ���ҳ��</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/10/git使用的tag/" data-id="cj2vvcm2u000ab4x3lrwphzf3" class="article-share-link" data-share="baidu" data-title="git使用的tag">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/Android/分类界面.html" data-id="cj2vvcm2e0002b4x3wahqyd16" class="article-share-link" data-share="baidu" data-title="���ڿ�����">分享到</a>
       
 
       
-        <a href="https://github.com/TheSadFrog/2017/05/10/git使用的tag/#disqus_thread" class="article-comment-link">评论</a>
+        <a href="https://github.com/TheSadFrog/Android/分类界面.html#disqus_thread" class="article-comment-link">评论</a>
       
 
       
@@ -138,25 +116,6 @@
   </div>
   
     
-<nav id="article-nav">
-  
-    <a href="/2017/05/14/git分支管理/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">
-        
-          git分支管理
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/04/24/BottomNavigationView的使用/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">BottomNavigationView 的使用</div>
-    </a>
-  
-</nav>
-
   
 </article>
 
@@ -265,7 +224,7 @@
 <script>
   var disqus_shortname = 'zhouchatian';
   
-  var disqus_url = 'https://github.com/TheSadFrog/2017/05/10/git使用的tag/';
+  var disqus_url = 'https://github.com/TheSadFrog/Android/分类界面.html';
   
   (function(){
     var dsq = document.createElement('script');
@@ -316,3 +275,4 @@
 </div>
 </body>
 </html>
+
