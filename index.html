@@ -117,7 +117,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/06/01/Java常用算法手册读书笔记目录/" data-id="cj3g15z760004f8x3uj92b7o9" class="article-share-link" data-share="baidu" data-title="Java常用算法手册读书笔记目录">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/06/01/Java常用算法手册读书笔记目录/" data-id="cj3n33wsa000fucx33x25ha5a" class="article-share-link" data-share="baidu" data-title="Java常用算法手册读书笔记目录">分享到</a>
       
 
       
@@ -161,7 +161,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/30/Kotlin与RecyclerView结合使用/" data-id="cj3g15z7c000bf8x3anhylrzc" class="article-share-link" data-share="baidu" data-title="Kotlin与RecyclerView结合使用">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/30/Kotlin与RecyclerView结合使用/" data-id="cj3n33wsa0008ucx36ghqcbxy" class="article-share-link" data-share="baidu" data-title="Kotlin与RecyclerView结合使用">分享到</a>
       
 
       
@@ -198,12 +198,116 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h1><p>Kotlin 的基本数值类型包括 <strong>Byte</strong>、<strong>Short</strong>、Int、Long、Float、Double 。不同于Java的是，字符不属于数值类型，是一个独立的数据类型。<br>Kotlin 处理数字和Java差不多，但也不完全相同。比如Java中的int 可以饮式转换成long。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>位宽度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Double</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Long</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Int</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Short</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Byte</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<h4 id="三种进制表示方法："><a href="#三种进制表示方法：" class="headerlink" title="三种进制表示方法："></a>三种进制表示方法：</h4><ol>
+<li>十进制：123<br>   Long类型用大写 <strong>L</strong> 标记：<strong>123L</strong></li>
+<li>十六进制：0x0F</li>
+<li>二进制：0b0001011</li>
+</ol>
+<blockquote>
+<p>注意：不支持八进制</p>
+</blockquote>
+<p>Kotlin 同样支持浮点数的常规表示方法 ：<br>    默认double:123.5 、123.5e10<br>    Float用f或者F标记：123.5f</p>
+<h5 id="数字中的下划线（自1-1起）"><a href="#数字中的下划线（自1-1起）" class="headerlink" title="数字中的下划线（自1.1起）"></a>数字中的下划线（自1.1起）</h5><p>可以使用下划线使数字常量更易读：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">val oneMillion = 1_000_000</div><div class="line">val creditCardNumber = 1234_5678_9012_3456L</div><div class="line">val socialSecurityNumber = 999_99_9999L</div><div class="line">val hexBytes = 0xFF_EC_DE_5E</div><div class="line">val bytes = 0b11010010_01101001_10010100_10010010</div></pre></td></tr></table></figure>
+<h4 id="比较两个数字"><a href="#比较两个数字" class="headerlink" title="比较两个数字"></a>比较两个数字</h4><p>Kotlin 中没有基础数据类型，只有封装的数字类型，你每定义的一个变量，其实 Kotlin 帮你封装了一个对象，这样可以保证不会出现空指针。数字类型也一样，所有在比较两个数字的时候，就有比较数据大小和比较两个对象是否相同的区别了。<br>在 Kotlin 中，三个等号 === 表示比较对象地址，两个 == 表示比较两个值大小。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">fun main(args: Array&lt;String&gt;) &#123;</div><div class="line">    val a: Int = 10000</div><div class="line">    println(a === a) // true，值相等，对象地址相等</div><div class="line"></div><div class="line">    //经过了装箱，创建了两个不同的对象</div><div class="line">    val boxedA: Int? = a</div><div class="line">    val anotherBoxedA: Int? = a</div><div class="line"></div><div class="line">    //虽然经过了装箱，但是值是相等的，都是10000</div><div class="line">    println(boxedA === anotherBoxedA) //  false，值相等，对象地址不一样</div><div class="line">    println(boxedA == anotherBoxedA) // true，值相等</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><p>由于不同的表示方式，较小类型并不是较大类型的子类型。 如果它们是的话，就会出现下述问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 假想的代码，实际上并不能编译：</div><div class="line">val a: Int? = 1 // 一个装箱的 Int (java.lang.Integer)</div><div class="line">val b: Long? = a // 隐式转换产生一个装箱的 Long (java.lang.Long)</div><div class="line">print(a == b) // 惊！这将打印 &quot;false&quot; 鉴于 Long 的 equals() 检测其他部分也是 Long</div></pre></td></tr></table></figure>
+<p>所以同一性还有相等性都会在所有地方悄无声息地失去。</p>
+<p>因此较小的类型不能隐式转换为较大的类型。 这意味着在不进行显式转换的情况下我们不能把 Byte 型值赋给一个 Int 变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val b: Byte = 1 // OK, 字面值是静态检测的</div><div class="line">val i: Int = b // 错误</div></pre></td></tr></table></figure>
+<p>Kotlin没有隐士转换，我们只能手动强制类型转换了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val i: Int = b.toInt() // OK: 显式转换</div></pre></td></tr></table></figure>
+<p>每个数字类型支持如下的转换:</p>
+<ul>
+<li>toByte(): Byte</li>
+<li>toShort(): Short</li>
+<li>toInt(): Int</li>
+<li>toLong(): Long</li>
+<li>toFloat(): Float</li>
+<li>toDouble(): Double</li>
+<li>toChar(): Char</li>
+</ul>
+<p>缺乏隐式类型转换并不显著，因为类型会从上下文推断出来，而算术运算会有重载做适当转换，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val l = 1L + 3 // Long + Int =&gt; Long</div></pre></td></tr></table></figure>
+<h4 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h4><p>Kotlin支持数字运算的标准集，运算被定义为相应的类成员（但编译器会将函数调用优化为相应的指令）。<br>对于位运算，没有特殊字符来表示，而只可用中缀方式调用命名函数，例如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val x = (1 shl 2) and 0x000FF000</div></pre></td></tr></table></figure>
+<p>这是完整的位运算列表（只用于 Int和 Long）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">shl(bits) – 有符号左移 (Java 的 &lt;&lt;)</div><div class="line">shr(bits) – 有符号右移 (Java 的 &gt;&gt;)</div><div class="line">ushr(bits) – 无符号右移 (Java 的 &gt;&gt;&gt;)</div><div class="line">and(bits) – 位与</div><div class="line">or(bits) – 位或</div><div class="line">xor(bits) – 位异或</div><div class="line">inv() – 位非</div></pre></td></tr></table></figure>
+<h1 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h1><p>字符用 Char<br> 类型表示。它们不能直接当作数字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fun check(c: Char) &#123;</div><div class="line">    if (c == 1) &#123; // 错误：类型不兼容</div><div class="line">        // ……</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>字符字面值用单引号括起来: ‘1’。 特殊字符可以用反斜杠转义。 支持这几个转义序列：\t、 \b、\n、\r、\’、\”、\和 \$。 编码其他字符要用 Unicode 转义序列语法：’\uFF00’。</p>
+<p>我们可以显式把字符转换为 <strong>Int </strong>数字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fun decimalDigitValue(c: Char): Int &#123;</div><div class="line">    if (c !in &apos;0&apos;..&apos;9&apos;)</div><div class="line">        throw IllegalArgumentException(&quot;Out of range&quot;)</div><div class="line">    return c.toInt() - &apos;0&apos;.toInt() // 显式转换为数字</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当需要可空引用时，像数字、字符会被装箱。装箱操作不会保留同一性。</p>
+<h1 id="布尔"><a href="#布尔" class="headerlink" title="布尔"></a>布尔</h1><p>布尔用 <strong>Boolean</strong>类型表示，它有两个值：<strong>true</strong> 和 <strong>false</strong>。<br>若需要可空引用布尔会被装箱。<br>内置的布尔运算有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">|| – 短路逻辑或</div><div class="line">&amp;&amp; – 短路逻辑与</div><div class="line">! - 逻辑非</div></pre></td></tr></table></figure>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>数组在 Kotlin 中使用 Array类来表示，它定义了 get和 set 函数（按照运算符重载约定这会转变为 []）和 size属性，以及一些其他有用的成员函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">class Array&lt;T&gt; private constructor() &#123;</div><div class="line">    val size: Int</div><div class="line">    operator fun get(index: Int): T</div><div class="line">    operator fun set(index: Int, value: T): Unit</div><div class="line"></div><div class="line">    operator fun iterator(): Iterator&lt;T&gt;</div><div class="line">    // ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们可以使用库函数 <strong>arrayOf()</strong>来创建一个数组并传递元素值给它，这样<strong> arrayOf(1, 2, 3)</strong>创建了 array [1, 2, 3]。 或者，库函数 arrayOfNulls()可以用于创建一个指定大小、元素都为空的数组。<br>另一个选项是用接受数组大小和一个函数参数的工厂函数，用作参数的函数能够返回 给定索引的每个元素初始值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 创建一个 Array&lt;String&gt; 初始化为 [&quot;0&quot;, &quot;1&quot;, &quot;4&quot;, &quot;9&quot;, &quot;16&quot;]</div><div class="line">val asc = Array(5, &#123; i -&gt; (i * i).toString() &#125;)</div></pre></td></tr></table></figure>
+<p>如上所述，<strong> [] </strong>运算符代表调用成员函数 <strong>get()</strong>和 <strong>set()</strong>。</p>
+<blockquote>
+<p>注意: 与 Java 不同的是，Kotlin 中数组是不型变的（invariant）。这意味着 Kotlin 不让我们把 <strong>Array<string></string></strong>赋值给 <strong>Array<any></any></strong>，以防止可能的运行时失败（但是你可以使用 <strong>Array<out any=""></out></strong>）。</p>
+</blockquote>
+<p>Kotlin 也有无装箱开销的专门的类来表示原生类型数组: ByteArray、ShortArray、IntArray等等。这些类和 Array 并没有继承关系，但是 它们有同样的方法属性集。它们也都有相应的工厂方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val x: IntArray = intArrayOf(1, 2, 3)</div><div class="line">x[0] = x[1] + x[2]</div></pre></td></tr></table></figure>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><p>字符串用 String类型表示。字符串是不可变的。 字符串的元素——字符可以使用索引运算符访问: s[i]。 可以用 <em>for</em> 循环迭代字符串:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (c in str) &#123;</div><div class="line">    println(c)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>字符串字面值</strong></p>
+<p>Kotlin 有两种类型的字符串字面值: 转义字符串可以有转义字符，以及原生字符串可以包含换行和任意文本。转义字符串很像 Java 字符串:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val s = &quot;Hello, world!\n&quot;</div></pre></td></tr></table></figure>
+<p>转义采用传统的反斜杠方式。参见上面的 字符]查看支持的转义序列。<br><em>原生字符串</em> 使用三个引号（”””）分界符括起来，内部没有转义并且可以包含换行和任何其他字符:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">val text = &quot;&quot;&quot;</div><div class="line">    for (c in &quot;foo&quot;)</div><div class="line">        print(c)</div><div class="line">&quot;&quot;&quot;</div></pre></td></tr></table></figure>
+<p>你可以通过 trimMargin函数去除前导空格：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">val text = &quot;&quot;&quot;</div><div class="line">    |Tell me and I forget.</div><div class="line">    |Teach me and I remember.</div><div class="line">    |Involve me and I learn.</div><div class="line">    |(Benjamin Franklin)</div><div class="line">    &quot;&quot;&quot;.trimMargin()</div></pre></td></tr></table></figure></p>
+<p>默认 <strong> | </strong>  用作边界前缀，但你可以选择其他字符并作为参数传入，比如 <strong>trimMargin(“&gt;”)</strong>。</p>
+<p><strong>字符串模板</strong></p>
+<p>字符串可以包含<em>模板表达式</em> ，即一些小段代码，会求值并把结果合并到字符串中。 模板表达式以美元符（$）开头，由一个简单的名字构成:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val i = 10</div><div class="line">val s = &quot;i = $i&quot; // 求值结果为 &quot;i = 10&quot;</div></pre></td></tr></table></figure>
+<p>或者用花括号扩起来的任意表达式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val s = &quot;abc&quot;</div><div class="line">val str = &quot;$s.length is $&#123;s.length&#125;&quot; // 求值结果为 &quot;abc.length is 3&quot;</div></pre></td></tr></table></figure>
+<p>原生字符串和转义字符串内部都支持模板。 如果你需要在原生字符串中表示字面值 $字符（它不支持反斜杠转义），你可以用下列语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">val price = &quot;&quot;&quot;</div><div class="line">$&#123;&apos;$&apos;&#125;9.99</div><div class="line">&quot;&quot;&quot;</div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/26/Kotlin基本类型/" data-id="cj3g15z7c000hf8x3eerbg8kh" class="article-share-link" data-share="baidu" data-title="Kotlin基本类型">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/26/Kotlin基本类型/" data-id="cj3n33wru0004ucx3apumqp87" class="article-share-link" data-share="baidu" data-title="Kotlin基本类型">分享到</a>
       
 
       
@@ -211,6 +315,8 @@
       
 
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
+
     </footer>
   </div>
   
@@ -245,7 +351,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/25/使用Kotlin-Android-Extensions/" data-id="cj3g15z7c000mf8x3sx3dleu3" class="article-share-link" data-share="baidu" data-title="使用Kotlin Android Extensions">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/25/使用Kotlin-Android-Extensions/" data-id="cj3n33wsa000iucx3xnkmjpnh" class="article-share-link" data-share="baidu" data-title="使用Kotlin Android Extensions">分享到</a>
       
 
       
@@ -300,7 +406,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/24/Kotlin环境搭建/" data-id="cj3g15z7c000cf8x3r25enkw1" class="article-share-link" data-share="baidu" data-title="Kotlin环境搭建">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/24/Kotlin环境搭建/" data-id="cj3n33wsa000cucx3torbykgv" class="article-share-link" data-share="baidu" data-title="Kotlin环境搭建">分享到</a>
       
 
       
@@ -344,7 +450,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/22/Kotlin/" data-id="cj3g15z780006f8x341k9vxql" class="article-share-link" data-share="baidu" data-title="Kotlin">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/22/Kotlin/" data-id="cj3n33wsa0009ucx3qwscbaq4" class="article-share-link" data-share="baidu" data-title="Kotlin">分享到</a>
       
 
       
@@ -397,7 +503,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/14/git分支管理/" data-id="cj3g15z7c000if8x33d1cm0n4" class="article-share-link" data-share="baidu" data-title="git分支管理">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/14/git分支管理/" data-id="cj3n33wsa000gucx3369wro8d" class="article-share-link" data-share="baidu" data-title="git分支管理">分享到</a>
       
 
       
@@ -454,7 +560,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/10/git使用的tag/" data-id="cj3g15z7c000lf8x3rhof05z5" class="article-share-link" data-share="baidu" data-title="git使用的tag">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/10/git使用的tag/" data-id="cj3n33wsa000jucx3t0odj23b" class="article-share-link" data-share="baidu" data-title="git使用的tag">分享到</a>
       
 
       
@@ -532,7 +638,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/04/24/BottomNavigationView的使用/" data-id="cj3g15z7c000gf8x3332ij6f4" class="article-share-link" data-share="baidu" data-title="BottomNavigationView 的使用">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/04/24/BottomNavigationView的使用/" data-id="cj3n33wsa0006ucx3dhds23rb" class="article-share-link" data-share="baidu" data-title="BottomNavigationView 的使用">分享到</a>
       
 
       
@@ -574,7 +680,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/04/10/测试，怎么又不行了/" data-id="cj3g15z7c000of8x3d0c4t2n0" class="article-share-link" data-share="baidu" data-title="测试，怎么又不行了">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/04/10/测试，怎么又不行了/" data-id="cj3n33wsq000nucx3or4yhltd" class="article-share-link" data-share="baidu" data-title="测试，怎么又不行了">分享到</a>
       
 
       
@@ -604,7 +710,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -613,7 +719,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+      <a href="/tags/Kotlin/" style="font-size: 20px;">Kotlin</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
     </div>
   </div>
 
