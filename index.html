@@ -76,6 +76,56 @@
     <div class="outer">
       <section id="main">
   
+    <article id="post-Glide快速入门" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/12/Glide快速入门/" class="article-date">
+  <time datetime="2017-06-12T14:25:26.000Z" itemprop="datePublished">2017-06-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/12/Glide快速入门/">Glide快速入门</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作者的github地址</p>
+<p>GitHub:<a href="https://github.com/bumptech/glide">https://github.com/bumptech/glide</a></p>
+<h1 id="1-添加依赖"><a href="#1-添加依赖" class="headerlink" title="1.添加依赖"></a>1.添加依赖</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile &apos;com.github.bumptech.glide:glide:4.0.0-RC0&apos;</div><div class="line">    compile &apos;com.android.support:support-v4:25.3.1&apos;</div><div class="line">    annotationProcessor &apos;com.github.bumptech.glide:compiler:4.0.0-RC0&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="2-添加网络权限"><a href="#2-添加网络权限" class="headerlink" title="2.添加网络权限"></a>2.添加网络权限</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;</div></pre></td></tr></table></figure>
+<h1 id="3-使用"><a href="#3-使用" class="headerlink" title="3.使用"></a>3.使用</h1><p>简单使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@Override </div><div class="line">public void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">      ImageView imageView = (ImageView)findViewById(R.id.my_image_view);</div><div class="line">      GlideApp.with(this).load(&quot;https://www.baidu.com/img/bd_logo1.png&quot;).into(imageView);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>.with(this) 上下文<br>.load() 加载的图片地址<br>.into() 加载到那个控件上</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://github.com/TheSadFrog/2017/06/12/Glide快速入门/" data-id="cj3u8f5080001hcx3o939zspl" class="article-share-link" data-share="baidu" data-title="Glide快速入门">分享到</a>
+      
+
+      
+        <a href="https://github.com/TheSadFrog/2017/06/12/Glide快速入门/#disqus_thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Glide/">Glide</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Python的GUI编程之Thinker初始" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/09/Python的GUI编程之Thinker初始/" class="article-date">
@@ -103,7 +153,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/06/09/Python的GUI编程之Thinker初始/" data-id="cj3q0ck14000algx36xa46mj2" class="article-share-link" data-share="baidu" data-title="Python的GUI编程之Thinker初始">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/06/09/Python的GUI编程之Thinker初始/" data-id="cj3u8f50u000ohcx37hdk0q14" class="article-share-link" data-share="baidu" data-title="Python的GUI编程之Thinker初始">分享到</a>
       
 
       
@@ -159,7 +209,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/06/01/Java常用算法手册读书笔记目录/" data-id="cj3q0ck14000dlgx3zaybexdz" class="article-share-link" data-share="baidu" data-title="Java常用算法手册读书笔记目录">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/06/01/Java常用算法手册读书笔记目录/" data-id="cj3u8f50u000jhcx3jrt27vxw" class="article-share-link" data-share="baidu" data-title="Java常用算法手册读书笔记目录">分享到</a>
       
 
       
@@ -203,7 +253,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/30/Kotlin与RecyclerView结合使用/" data-id="cj3q0ck0o0003lgx3r0rmcwk6" class="article-share-link" data-share="baidu" data-title="Kotlin与RecyclerView结合使用">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/30/Kotlin与RecyclerView结合使用/" data-id="cj3u8f50u000fhcx3npotzv48" class="article-share-link" data-share="baidu" data-title="Kotlin与RecyclerView结合使用">分享到</a>
       
 
       
@@ -349,7 +399,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/26/Kotlin基本类型/" data-id="cj3q0ck1j000hlgx3zqxjxrt7" class="article-share-link" data-share="baidu" data-title="Kotlin基本类型">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/26/Kotlin基本类型/" data-id="cj3u8f50u000hhcx3m7dxze1s" class="article-share-link" data-share="baidu" data-title="Kotlin基本类型">分享到</a>
       
 
       
@@ -393,7 +443,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/25/使用Kotlin-Android-Extensions/" data-id="cj3q0ck1j000nlgx3ix92zv6y" class="article-share-link" data-share="baidu" data-title="使用Kotlin Android Extensions">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/25/使用Kotlin-Android-Extensions/" data-id="cj3u8f51a000thcx3jm0svo74" class="article-share-link" data-share="baidu" data-title="使用Kotlin Android Extensions">分享到</a>
       
 
       
@@ -448,7 +498,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/24/Kotlin环境搭建/" data-id="cj3q0ck1j000ilgx3y17ge4vd" class="article-share-link" data-share="baidu" data-title="Kotlin环境搭建">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/24/Kotlin环境搭建/" data-id="cj3u8f50u000ghcx33md2e8cw" class="article-share-link" data-share="baidu" data-title="Kotlin环境搭建">分享到</a>
       
 
       
@@ -492,7 +542,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/22/Kotlin/" data-id="cj3q0ck140007lgx3e2jxs7ly" class="article-share-link" data-share="baidu" data-title="Kotlin">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/22/Kotlin/" data-id="cj3u8f50u000dhcx3stnvpoyn" class="article-share-link" data-share="baidu" data-title="Kotlin">分享到</a>
       
 
       
@@ -545,7 +595,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/14/git分支管理/" data-id="cj3q0ck14000elgx3kcj46he6" class="article-share-link" data-share="baidu" data-title="git分支管理">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/14/git分支管理/" data-id="cj3u8f50u000lhcx3bcttfdwp" class="article-share-link" data-share="baidu" data-title="git分支管理">分享到</a>
       
 
       
@@ -602,89 +652,11 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/10/git使用的tag/" data-id="cj3q0ck1j000llgx3vkos65q7" class="article-share-link" data-share="baidu" data-title="git使用的tag">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/10/git使用的tag/" data-id="cj3u8f50u000khcx3tm14njty" class="article-share-link" data-share="baidu" data-title="git使用的tag">分享到</a>
       
 
       
         <a href="https://github.com/TheSadFrog/2017/05/10/git使用的tag/#disqus_thread" class="article-comment-link">评论</a>
-      
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-BottomNavigationView的使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/24/BottomNavigationView的使用/" class="article-date">
-  <time datetime="2017-04-24T15:07:45.000Z" itemprop="datePublished">2017-04-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/24/BottomNavigationView的使用/">BottomNavigationView 的使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>不多说先上效果图</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2622167-ceeaf8a43bf52c11.gif?imageMogr2/auto-orient/strip" alt="zhouchatian.com"></p>
-<h1 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h1><blockquote>
-<p>compile ‘com.android.support:design:25.0.0’</p>
-</blockquote>
-<h1 id="添加控件"><a href="#添加控件" class="headerlink" title="添加控件"></a>添加控件</h1><p>在布局文件添加BottomNavigationView组件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</div><div class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;match_parent&quot;</div><div class="line">    tools:context=&quot;com.zhouchatian.baseandroid.MainActivity&quot;&gt;</div><div class="line"></div><div class="line">    &lt;TextView</div><div class="line">        android:id=&quot;@+id/text&quot;</div><div class="line">        android:layout_width=&quot;wrap_content&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:textSize=&quot;18sp&quot;</div><div class="line">        android:layout_centerInParent=&quot;true&quot;/&gt;</div><div class="line"></div><div class="line">    &lt;android.support.design.widget.BottomNavigationView</div><div class="line">        android:id=&quot;@+id/navigation&quot;</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:layout_alignParentBottom=&quot;true&quot;</div><div class="line">        app:menu=&quot;@menu/navigation&quot;/&gt;</div><div class="line"></div><div class="line">&lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure>
-<h1 id="添加按钮"><a href="#添加按钮" class="headerlink" title="添加按钮"></a>添加按钮</h1><p>在res下创建navigation.xml 放在menu文件夹下，如果没有就创建一个menu文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line">    &lt;item</div><div class="line">        android:id=&quot;@+id/bottom_home&quot;</div><div class="line">        android:icon=&quot;@mipmap/ic_home_white_24dp&quot;</div><div class="line">        android:title=&quot;首页&quot; /&gt;</div><div class="line">    &lt;item</div><div class="line">        android:id=&quot;@+id/bottom_book&quot;</div><div class="line">        android:icon=&quot;@mipmap/ic_book_white_24dp&quot;</div><div class="line">        android:title=&quot;书本&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;item</div><div class="line">        android:id=&quot;@+id/bottom_collection&quot;</div><div class="line">        android:icon=&quot;@mipmap/ic_favorite_white_24dp&quot;</div><div class="line">        android:title=&quot;收藏&quot;/&gt;</div><div class="line"></div><div class="line">    &lt;item</div><div class="line">        android:id=&quot;@+id/bottom_setting&quot;</div><div class="line">        android:icon=&quot;@mipmap/ic_tv_white_24dp&quot;</div><div class="line">        android:title=&quot;设置&quot; /&gt;</div><div class="line">&lt;/menu&gt;</div></pre></td></tr></table></figure>
-<p>要说下的这个按钮只能创建3个到5个，多了或少了都会报错。</p>
-<h1 id="添加监听"><a href="#添加监听" class="headerlink" title="添加监听"></a>添加监听</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class MainActivity extends AppCompatActivity &#123;</div><div class="line">    private TextView mTextView;</div><div class="line">    private BottomNavigationView mNavigationView;</div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        mTextView = (TextView) findViewById(R.id.text);</div><div class="line">        mNavigationView = (BottomNavigationView) findViewById(R.id.navigation);</div><div class="line">        mNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() &#123;</div><div class="line">            @Override</div><div class="line">            public boolean onNavigationItemSelected(@NonNull MenuItem item) &#123;</div><div class="line">                mTextView.setText(item.getTitle().toString().toUpperCase());</div><div class="line">                return true;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这样一个建的底部导航就做好了，控件使用简单，带来局限性，只有修改一些。</p>
-<h1 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h1><p>app:itemIconTint=”#FFFFFF”设置图标的颜色</p>
-<p>app:itemTextColor=”#FFFFFF”设置文字的颜色</p>
-<p>app:itemBackground=”@color/colorPrimary” 设置背景色</p>
-<p>如果不设置就是上图的颜色，官方提供了三个颜色</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2622167-41b6b08439b239af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="zhouchatian.com"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;android.support.design.widget.BottomNavigationView</div><div class="line">        android:id=&quot;@+id/navigation&quot;</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:layout_alignParentBottom=&quot;true&quot;</div><div class="line">        app:itemIconTint=&quot;#FFFFFF&quot;</div><div class="line">        app:itemTextColor=&quot;#FFFFFF&quot;</div><div class="line">        app:itemBackground=&quot;@color/colorPrimary&quot;</div><div class="line">        app:menu=&quot;@menu/navigation&quot;/&gt;</div></pre></td></tr></table></figure>
-<p>当然你也可以在代码中设置</p>
-<blockquote>
-<p>setItemBackgroundResource(int  resId)<br>setItemIconTintList(ColorStateList  tint)<br>setItemTextColor(ColorStateList  textColor)</p>
-</blockquote>
-<p>在实际开发中使用item.getItemId()使用switch来判断选中了哪一个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">mNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() &#123;</div><div class="line">            @Override</div><div class="line">            public boolean onNavigationItemSelected(@NonNull MenuItem item) &#123;</div><div class="line">                switch (item.getItemId()) &#123;</div><div class="line">                    case R.id.bottom_home:</div><div class="line">                        mTextView.setText(item.getTitle());</div><div class="line">                        break;</div><div class="line">                    case R.id.bottom_book:</div><div class="line">                        mTextView.setText(item.getTitle());</div><div class="line">                        break;</div><div class="line">                    case R.id.bottom_collection:</div><div class="line">                        mTextView.setText(item.getTitle());</div><div class="line">                        break;</div><div class="line">                    case R.id.bottom_setting:</div><div class="line">                        mTextView.setText(item.getTitle());</div><div class="line">                        break;</div><div class="line">                &#125;</div><div class="line">                return true;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
-<p>其实这个还有另外一个监听</p>
-<blockquote>
-<p>BottomNavigationView.OnNavigationItemReselectedListener</p>
-</blockquote>
-<p>官方解释用于重选的监听，特意提下是希望各位用的时候别选错了。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="1-默认选中的是第一个，但是我们要默认选中其他的怎么办？"><a href="#1-默认选中的是第一个，但是我们要默认选中其他的怎么办？" class="headerlink" title="1. 默认选中的是第一个，但是我们要默认选中其他的怎么办？"></a>1. 默认选中的是第一个，但是我们要默认选中其他的怎么办？</h3><p>官方提供了两个方法</p>
-<blockquote>
-<p>getSelectedItemId(int itemId)</p>
-</blockquote>
-<p>获得选中item的id，这时我们就可以使用另一个方法</p>
-<blockquote>
-<p>setSelectedItemId(int itemId)</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="https://github.com/TheSadFrog/2017/04/24/BottomNavigationView的使用/" data-id="cj3q0ck140009lgx3q8tbgxkj" class="article-share-link" data-share="baidu" data-title="BottomNavigationView 的使用">分享到</a>
-      
-
-      
-        <a href="https://github.com/TheSadFrog/2017/04/24/BottomNavigationView的使用/#disqus_thread" class="article-comment-link">评论</a>
       
 
       
@@ -710,7 +682,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Glide/">Glide</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -719,7 +691,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Kotlin/" style="font-size: 20px;">Kotlin</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+      <a href="/tags/Glide/" style="font-size: 10px;">Glide</a> <a href="/tags/Kotlin/" style="font-size: 20px;">Kotlin</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
     </div>
   </div>
 
@@ -728,7 +700,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">7</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -738,6 +710,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/06/12/Glide快速入门/">Glide快速入门</a>
+          </li>
         
           <li>
             <a href="/2017/06/09/Python的GUI编程之Thinker初始/">Python的GUI编程之Thinker初始</a>
@@ -753,10 +729,6 @@
         
           <li>
             <a href="/2017/05/26/Kotlin基本类型/">Kotlin基本类型</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/25/使用Kotlin-Android-Extensions/">使用Kotlin Android Extensions</a>
           </li>
         
       </ul>
