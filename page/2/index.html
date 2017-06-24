@@ -76,6 +76,63 @@
     <div class="outer">
       <section id="main">
   
+    <article id="post-git使用的tag" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/10/git使用的tag/" class="article-date">
+  <time datetime="2017-05-10T14:20:49.000Z" itemprop="datePublished">2017-05-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/10/git使用的tag/">git使用的tag</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Tag类似于branch,区别是branch是可以不断改变、Merge的而Tag不行。Tag可以认为是一个快照、一个记录点，用于记录某个commit点或分支的历史快照。Tag通常打开Master分支上，以保证代码的准确性。</p>
+<h1 id="创建Tag"><a href="#创建Tag" class="headerlink" title="创建Tag"></a>创建Tag</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag &lt;Tag名字&gt;</div></pre></td></tr></table></figure>
+<p>这样创建的tag,默认会记录在最后提交的上。也可以通过commit id 指定要创建Tag 的地方。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag &lt;Tag 名字&gt; &lt;SHA-1 Code&gt;</div></pre></td></tr></table></figure>
+<h1 id="创建带标签的Tag"><a href="#创建带标签的Tag" class="headerlink" title="创建带标签的Tag"></a>创建带标签的Tag</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag -a &lt;Tag名字&gt; -m &lt;注释文字&gt; &lt;SHA-1 Code&gt;</div></pre></td></tr></table></figure>
+<p>SHA-1 Code 并不需要全部写完，只要写前6、7 位就差不多了，Git就可以查找到相应的id了。</p>
+<h1 id="查看Tag"><a href="#查看Tag" class="headerlink" title="查看Tag"></a>查看Tag</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag</div></pre></td></tr></table></figure>
+<p>查看指定Tag的详细信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git show &lt;Tag 名字&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="删除标签"><a href="#删除标签" class="headerlink" title="删除标签"></a>删除标签</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag -d &lt;Tag 名字&gt;</div></pre></td></tr></table></figure>
+<h1 id="推送Tag到远程"><a href="#推送Tag到远程" class="headerlink" title="推送Tag到远程"></a>推送Tag到远程</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin &lt;Tag 名字&gt;</div></pre></td></tr></table></figure>
+<p>或者通过–tags 参数来推送所有本地的Tag</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin --tags</div></pre></td></tr></table></figure>
+<h1 id="删除远程Tag"><a href="#删除远程Tag" class="headerlink" title="删除远程Tag"></a>删除远程Tag</h1><p>当本地Tag已经Push到远程代码仓库后，再要删除这个Tag,就必须删除本地Tag.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag -d &lt;Tag 名字&gt;</div></pre></td></tr></table></figure></p>
+<p>删除本地Tag后，再重新Push到远程的代码仓库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin :refs/tags/&lt;Tag 名字&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://github.com/TheSadFrog/2017/05/10/git使用的tag/" data-id="cj4bfyly1000p64x3m97srb4p" class="article-share-link" data-share="baidu" data-title="git使用的tag">分享到</a>
+      
+
+      
+        <a href="https://github.com/TheSadFrog/2017/05/10/git使用的tag/#disqus_thread" class="article-comment-link">评论</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-BottomNavigationView的使用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/04/24/BottomNavigationView的使用/" class="article-date">
@@ -139,7 +196,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/04/24/BottomNavigationView的使用/" data-id="cj3u8f5080008hcx3ounxtpo3" class="article-share-link" data-share="baidu" data-title="BottomNavigationView 的使用">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/04/24/BottomNavigationView的使用/" data-id="cj4bfylxl000b64x36nbgan23" class="article-share-link" data-share="baidu" data-title="BottomNavigationView 的使用">分享到</a>
       
 
       
@@ -181,7 +238,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/04/10/测试，怎么又不行了/" data-id="cj3u8f51a000uhcx3f9vygwj9" class="article-share-link" data-share="baidu" data-title="测试，怎么又不行了">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/04/10/测试，怎么又不行了/" data-id="cj4bfyly1000w64x33dtt7mri" class="article-share-link" data-share="baidu" data-title="测试，怎么又不行了">分享到</a>
       
 
       
@@ -233,7 +290,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/04/08/git提交代码三部曲/" data-id="cj3u8f51a000shcx3xt3gn0hu" class="article-share-link" data-share="baidu" data-title="git提交代码三部曲">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/04/08/git提交代码三部曲/" data-id="cj4bfyly1000o64x30eo15otl" class="article-share-link" data-share="baidu" data-title="git提交代码三部曲">分享到</a>
       
 
       
@@ -279,7 +336,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/25/新建分类/" data-id="cj3u8f51a000phcx3rfa5khdm" class="article-share-link" data-share="baidu" data-title="新建分类">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/25/新建分类/" data-id="cj4bfyly1000v64x3lju8bplb" class="article-share-link" data-share="baidu" data-title="新建分类">分享到</a>
       
 
       
@@ -342,7 +399,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/16/Android Stuido 无线调试/" data-id="cj3u8f5080006hcx3zijw1ek2" class="article-share-link" data-share="baidu" data-title="Android Stuido 无线调试">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/16/Android Stuido 无线调试/" data-id="cj4bfylxl000664x3387l51w5" class="article-share-link" data-share="baidu" data-title="Android Stuido 无线调试">分享到</a>
       
 
       
@@ -385,7 +442,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/16/Bug/" data-id="cj3u8f5080003hcx36a09eh3l" class="article-share-link" data-share="baidu" data-title="Bug">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/16/Bug/" data-id="cj4bfylxl000364x3r3bqmac5" class="article-share-link" data-share="baidu" data-title="Bug">分享到</a>
       
 
       
@@ -433,7 +490,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/16/Hexo更换主题/" data-id="cj3u8f5080009hcx3of4bxu8n" class="article-share-link" data-share="baidu" data-title="Hexo更换主题">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/16/Hexo更换主题/" data-id="cj4bfyly1000f64x3vxt0btc5" class="article-share-link" data-share="baidu" data-title="Hexo更换主题">分享到</a>
       
 
       
@@ -511,7 +568,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/09/Markdown简明语法/" data-id="cj3u8f50u000ehcx3jeh0wvd1" class="article-share-link" data-share="baidu" data-title="Markdown简明语法">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/09/Markdown简明语法/" data-id="cj4bfyly1000j64x39k5nf831" class="article-share-link" data-share="baidu" data-title="Markdown简明语法">分享到</a>
       
 
       
@@ -582,7 +639,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/09/Hexo搭建个人博客/" data-id="cj3u8f50u000bhcx3l9yiw6qp" class="article-share-link" data-share="baidu" data-title="Hexo搭建个人博客">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/09/Hexo搭建个人博客/" data-id="cj4bfylxl000d64x3z8mod3st" class="article-share-link" data-share="baidu" data-title="Hexo搭建个人博客">分享到</a>
       
 
       
@@ -597,61 +654,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/09/hello-world/" class="article-date">
-  <time datetime="2017-03-08T16:24:25.153Z" itemprop="datePublished">2017-03-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/09/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="https://github.com/TheSadFrog/2017/03/09/hello-world/" data-id="cj3u8f51a000whcx3b6neqa5r" class="article-share-link" data-share="baidu" data-title="Hello World">分享到</a>
-      
-
-      
-        <a href="https://github.com/TheSadFrog/2017/03/09/hello-world/#disqus_thread" class="article-comment-link">评论</a>
-      
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
   </nav>
 </section>
       
@@ -681,7 +687,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">7</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -691,6 +697,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/06/24/Kotlin-的list/">Kotlin 的list</a>
+          </li>
         
           <li>
             <a href="/2017/06/12/Glide快速入门/">Glide快速入门</a>
@@ -706,10 +716,6 @@
         
           <li>
             <a href="/2017/05/30/Kotlin与RecyclerView结合使用/">Kotlin与RecyclerView结合使用</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/26/Kotlin基本类型/">Kotlin基本类型</a>
           </li>
         
       </ul>
