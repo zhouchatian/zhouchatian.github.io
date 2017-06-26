@@ -4,18 +4,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Kotlin与RecyclerView结合使用 | Mr.Robot</title>
+  <title>你真的会使用google搜索？ | Mr.Robot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="技术宅">
+  <meta name="description" content="Google搜索可以说是当今世界最好的搜索工具。但你真的会使用他吗？如果你听过高级搜索语法，那就让我们一起来学习吧。
+逻辑与或非操作  Google在搜索中使用 “+ ” 、“-”、“OR”(大写的）来进行搜索结果的逻辑操作。例如：使用“A”+”B”,代表搜索结果包含A和B；使用 “A”-“B”代表搜索结果包含A且不宝行B:使用“A OR B”代表搜索结果又A或者B。使用双引号代表精确的查询条件。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin与RecyclerView结合使用">
-<meta property="og:url" content="https://github.com/TheSadFrog/2017/05/30/Kotlin与RecyclerView结合使用/index.html">
+<meta property="og:title" content="你真的会使用google搜索？">
+<meta property="og:url" content="https://github.com/TheSadFrog/2017/06/26/你真的会使用google搜索？/index.html">
 <meta property="og:site_name" content="Mr.Robot">
-<meta property="og:description" content="技术宅">
-<meta property="og:updated_time" content="2017-05-30T15:07:08.327Z">
+<meta property="og:description" content="Google搜索可以说是当今世界最好的搜索工具。但你真的会使用他吗？如果你听过高级搜索语法，那就让我们一起来学习吧。
+逻辑与或非操作  Google在搜索中使用 “+ ” 、“-”、“OR”(大写的）来进行搜索结果的逻辑操作。例如：使用“A”+”B”,代表搜索结果包含A和B；使用 “A”-“B”代表搜索结果包含A且不宝行B:使用“A OR B”代表搜索结果又A或者B。使用双引号代表精确的查询条件。">
+<meta property="og:updated_time" content="2017-06-26T14:31:57.944Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kotlin与RecyclerView结合使用">
-<meta name="twitter:description" content="技术宅">
+<meta name="twitter:title" content="你真的会使用google搜索？">
+<meta name="twitter:description" content="Google搜索可以说是当今世界最好的搜索工具。但你真的会使用他吗？如果你听过高级搜索语法，那就让我们一起来学习吧。
+逻辑与或非操作  Google在搜索中使用 “+ ” 、“-”、“OR”(大写的）来进行搜索结果的逻辑操作。例如：使用“A”+”B”,代表搜索结果包含A和B；使用 “A”-“B”代表搜索结果包含A且不宝行B:使用“A OR B”代表搜索结果又A或者B。使用双引号代表精确的查询条件。">
   
     <link rel="alternative" href="/atom.xml" title="Mr.Robot" type="application/atom+xml">
   
@@ -75,10 +78,10 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main"><article id="post-Kotlin与RecyclerView结合使用" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-你真的会使用google搜索？" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/30/Kotlin与RecyclerView结合使用/" class="article-date">
-  <time datetime="2017-05-30T15:07:08.000Z" itemprop="datePublished">2017-05-30</time>
+    <a href="/2017/06/26/你真的会使用google搜索？/" class="article-date">
+  <time datetime="2017-06-26T14:31:21.000Z" itemprop="datePublished">2017-06-26</time>
 </a>
     
   </div>
@@ -89,7 +92,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Kotlin与RecyclerView结合使用
+      你真的会使用google搜索？
     </h1>
   
 
@@ -97,16 +100,55 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>Google搜索可以说是当今世界最好的搜索工具。但你真的会使用他吗？如果你听过高级搜索语法，那就让我们一起来学习吧。</p>
+<h1 id="逻辑与或非操作"><a href="#逻辑与或非操作" class="headerlink" title="逻辑与或非操作"></a>逻辑与或非操作</h1><p>  Google在搜索中使用 “+ ” 、“-”、“OR”(大写的）来进行搜索结果的逻辑操作。例如：使用“A”+”B”,代表搜索结果包含A和B；使用 “A”-“B”代表搜索结果包含A且不宝行B:使用“A OR B”代表搜索结果又A或者B。使用双引号代表精确的查询条件。通过这种逻辑搜索操作，可以让搜索结果尽可能的少，来帮助我们快速找到想要的结果。</p>
+<h1 id="模糊搜索"><a href="#模糊搜索" class="headerlink" title="模糊搜索"></a>模糊搜索</h1><ul>
+<li>文字匹配</li>
+</ul>
+<p>Google 在搜索中使用 “<em>”（星号）匹配任意字符。例如，你可以索搜“Android </em> ”匹配所有类似Android Sutdio ，Android UI 等结果这对于关键词缺失的情况非常有邦族。</p>
+<ul>
+<li>区间通配<br>Google 在搜索中使用“.. ”(两个点和一个空格)进行数字区间的通配。例如：你要查找2012年到2016年之间的Android 市场占有率，就可以通过“2012.. 2016”进行配配。</li>
+</ul>
+<h1 id="搜索语法"><a href="#搜索语法" class="headerlink" title="搜索语法"></a>搜索语法</h1><p>Google提供了一些搜索语法，让用户创建更精彩的搜索条件。</p>
+<ul>
+<li>Site</li>
+</ul>
+<p>site 指令可以搜索结果限定于某个网站中，或者某些类型的网站中。例如，使用“Android site:developer.android.com/index.hemtl” 搜索该网站下的所有关于Android 的内容。</p>
+<ul>
+<li>Link</li>
+</ul>
+<p>Link 语法可以查询所有链接到某个地址的信息。 例如：“link:www.github.com”将查询所有链接到github的URL地址</p>
+<ul>
+<li>intitle</li>
+</ul>
+<p>intitle语法可以查询网页标题栏中的信息。例如：“intitle:android ” 将查询网页标题中包含android 的所有信息。</p>
+<ul>
+<li>inurl:pdf</li>
+</ul>
+<p>inurl:pdf 语法可以快速查找所有的PDF类型网页。例如，“inutl:pdf android” 将查找所有的PDF 类型的android相关的信息。</p>
+<h1 id="搜索社交媒体"><a href="#搜索社交媒体" class="headerlink" title="搜索社交媒体"></a>搜索社交媒体</h1><p>放在@一个字前面搜索社交媒体。例如：@twitter。</p>
+<h1 id="搜索价格"><a href="#搜索价格" class="headerlink" title="搜索价格"></a>搜索价格</h1><p>放在$ 一个数字前面 例如：camera $400。</p>
+<h1 id="搜索标签"><a href="#搜索标签" class="headerlink" title="搜索标签"></a>搜索标签</h1><p>放在# 一个字前面 例如：#throwbackthursday</p>
+<h1 id="从您的搜索中排除单词"><a href="#从您的搜索中排除单词" class="headerlink" title="从您的搜索中排除单词"></a>从您的搜索中排除单词</h1><p>放在- 你想要离开的单词前面。例如，jaguar speed -car</p>
+<h1 id="搜索完全匹配"><a href="#搜索完全匹配" class="headerlink" title="搜索完全匹配"></a>搜索完全匹配</h1><p>把一个单词或短语放在引号内。例如，”tallest building”。</p>
+<h1 id="搜索通配符或未知单词"><a href="#搜索通配符或未知单词" class="headerlink" title="搜索通配符或未知单词"></a>搜索通配符或未知单词</h1><p>放在<em> 你想要离开占位符的单词或短语中。例如，”largest </em> in the world”。</p>
+<h1 id="在数字范围内搜索"><a href="#在数字范围内搜索" class="headerlink" title="在数字范围内搜索"></a>在数字范围内搜索</h1><p>放在.. 两个数字之间。例如，camera $50..$100。</p>
+<h1 id="合并搜索"><a href="#合并搜索" class="headerlink" title="合并搜索"></a>合并搜索</h1><p>OR在每个搜索查询之间放置“ ”。例如，   marathon OR race。</p>
+<h1 id="搜索特定网站"><a href="#搜索特定网站" class="headerlink" title="搜索特定网站"></a>搜索特定网站</h1><p>将“ site:”放在网站或域名前面。例如，site:youtube.com 或  site:.gov。</p>
+<h1 id="搜索相关网站"><a href="#搜索相关网站" class="headerlink" title="搜索相关网站"></a>搜索相关网站</h1><p>将“ related:”放在您已经知道的网址前。例如，related:time.com。</p>
+<h1 id="获取有关网站的详细信息"><a href="#获取有关网站的详细信息" class="headerlink" title="获取有关网站的详细信息"></a>获取有关网站的详细信息</h1><p>将“ info:”放在站点地址前面。</p>
+<p>这些语法可以混合使用。<br>本文参考Android群英传2</p>
+<p>更多请点击这里：<br><a href="https://support.google.com/websearch/answer/2466433?hl=en" target="_blank" rel="external">https://support.google.com/websearch/answer/2466433?hl=en</a></p>
+
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/30/Kotlin与RecyclerView结合使用/" data-id="cj4e8s76i000aoox3hzaxhmab" class="article-share-link" data-share="baidu" data-title="Kotlin与RecyclerView结合使用">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/06/26/你真的会使用google搜索？/" data-id="cj4e8s76r000koox3uw3dyc0b" class="article-share-link" data-share="baidu" data-title="你真的会使用google搜索？">分享到</a>
       
 
       
-        <a href="https://github.com/TheSadFrog/2017/05/30/Kotlin与RecyclerView结合使用/#disqus_thread" class="article-comment-link">评论</a>
+        <a href="https://github.com/TheSadFrog/2017/06/26/你真的会使用google搜索？/#disqus_thread" class="article-comment-link">评论</a>
       
 
       
@@ -116,19 +158,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/06/01/Java常用算法手册读书笔记目录/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">
-        
-          Java常用算法手册读书笔记目录
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/26/Kotlin基本类型/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/06/24/Kotlin-的list/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">Kotlin基本类型</div>
+      <div class="article-nav-title">Kotlin 的list</div>
     </a>
   
 </nav>
@@ -255,7 +288,7 @@
 <script>
   var disqus_shortname = 'zhouchatian';
   
-  var disqus_url = 'https://github.com/TheSadFrog/2017/05/30/Kotlin与RecyclerView结合使用/';
+  var disqus_url = 'https://github.com/TheSadFrog/2017/06/26/你真的会使用google搜索？/';
   
   (function(){
     var dsq = document.createElement('script');
