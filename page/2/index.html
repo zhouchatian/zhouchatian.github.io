@@ -76,6 +76,154 @@
     <div class="outer">
       <section id="main">
   
+    <article id="post-Kotlin基本类型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/26/Kotlin基本类型/" class="article-date">
+  <time datetime="2017-05-26T15:42:29.000Z" itemprop="datePublished">2017-05-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/26/Kotlin基本类型/">Kotlin基本类型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h1><p>Kotlin 的基本数值类型包括 <strong>Byte</strong>、<strong>Short</strong>、Int、Long、Float、Double 。不同于Java的是，字符不属于数值类型，是一个独立的数据类型。<br>Kotlin 处理数字和Java差不多，但也不完全相同。比如Java中的int 可以饮式转换成long。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>位宽度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Double</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Float</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Long</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Int</td>
+<td>32</td>
+</tr>
+<tr>
+<td>Short</td>
+<td>16</td>
+</tr>
+<tr>
+<td>Byte</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<h4 id="三种进制表示方法："><a href="#三种进制表示方法：" class="headerlink" title="三种进制表示方法："></a>三种进制表示方法：</h4><ol>
+<li>十进制：123<br>   Long类型用大写 <strong>L</strong> 标记：<strong>123L</strong></li>
+<li>十六进制：0x0F</li>
+<li>二进制：0b0001011</li>
+</ol>
+<blockquote>
+<p>注意：不支持八进制</p>
+</blockquote>
+<p>Kotlin 同样支持浮点数的常规表示方法 ：<br>    默认double:123.5 、123.5e10<br>    Float用f或者F标记：123.5f</p>
+<h5 id="数字中的下划线（自1-1起）"><a href="#数字中的下划线（自1-1起）" class="headerlink" title="数字中的下划线（自1.1起）"></a>数字中的下划线（自1.1起）</h5><p>可以使用下划线使数字常量更易读：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">val oneMillion = 1_000_000</div><div class="line">val creditCardNumber = 1234_5678_9012_3456L</div><div class="line">val socialSecurityNumber = 999_99_9999L</div><div class="line">val hexBytes = 0xFF_EC_DE_5E</div><div class="line">val bytes = 0b11010010_01101001_10010100_10010010</div></pre></td></tr></table></figure>
+<h4 id="比较两个数字"><a href="#比较两个数字" class="headerlink" title="比较两个数字"></a>比较两个数字</h4><p>Kotlin 中没有基础数据类型，只有封装的数字类型，你每定义的一个变量，其实 Kotlin 帮你封装了一个对象，这样可以保证不会出现空指针。数字类型也一样，所有在比较两个数字的时候，就有比较数据大小和比较两个对象是否相同的区别了。<br>在 Kotlin 中，三个等号 === 表示比较对象地址，两个 == 表示比较两个值大小。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">fun main(args: Array&lt;String&gt;) &#123;</div><div class="line">    val a: Int = 10000</div><div class="line">    println(a === a) // true，值相等，对象地址相等</div><div class="line"></div><div class="line">    //经过了装箱，创建了两个不同的对象</div><div class="line">    val boxedA: Int? = a</div><div class="line">    val anotherBoxedA: Int? = a</div><div class="line"></div><div class="line">    //虽然经过了装箱，但是值是相等的，都是10000</div><div class="line">    println(boxedA === anotherBoxedA) //  false，值相等，对象地址不一样</div><div class="line">    println(boxedA == anotherBoxedA) // true，值相等</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h4><p>由于不同的表示方式，较小类型并不是较大类型的子类型。 如果它们是的话，就会出现下述问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 假想的代码，实际上并不能编译：</div><div class="line">val a: Int? = 1 // 一个装箱的 Int (java.lang.Integer)</div><div class="line">val b: Long? = a // 隐式转换产生一个装箱的 Long (java.lang.Long)</div><div class="line">print(a == b) // 惊！这将打印 &quot;false&quot; 鉴于 Long 的 equals() 检测其他部分也是 Long</div></pre></td></tr></table></figure>
+<p>所以同一性还有相等性都会在所有地方悄无声息地失去。</p>
+<p>因此较小的类型不能隐式转换为较大的类型。 这意味着在不进行显式转换的情况下我们不能把 Byte 型值赋给一个 Int 变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val b: Byte = 1 // OK, 字面值是静态检测的</div><div class="line">val i: Int = b // 错误</div></pre></td></tr></table></figure>
+<p>Kotlin没有隐士转换，我们只能手动强制类型转换了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val i: Int = b.toInt() // OK: 显式转换</div></pre></td></tr></table></figure>
+<p>每个数字类型支持如下的转换:</p>
+<ul>
+<li>toByte(): Byte</li>
+<li>toShort(): Short</li>
+<li>toInt(): Int</li>
+<li>toLong(): Long</li>
+<li>toFloat(): Float</li>
+<li>toDouble(): Double</li>
+<li>toChar(): Char</li>
+</ul>
+<p>缺乏隐式类型转换并不显著，因为类型会从上下文推断出来，而算术运算会有重载做适当转换，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val l = 1L + 3 // Long + Int =&gt; Long</div></pre></td></tr></table></figure>
+<h4 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h4><p>Kotlin支持数字运算的标准集，运算被定义为相应的类成员（但编译器会将函数调用优化为相应的指令）。<br>对于位运算，没有特殊字符来表示，而只可用中缀方式调用命名函数，例如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val x = (1 shl 2) and 0x000FF000</div></pre></td></tr></table></figure>
+<p>这是完整的位运算列表（只用于 Int和 Long）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">shl(bits) – 有符号左移 (Java 的 &lt;&lt;)</div><div class="line">shr(bits) – 有符号右移 (Java 的 &gt;&gt;)</div><div class="line">ushr(bits) – 无符号右移 (Java 的 &gt;&gt;&gt;)</div><div class="line">and(bits) – 位与</div><div class="line">or(bits) – 位或</div><div class="line">xor(bits) – 位异或</div><div class="line">inv() – 位非</div></pre></td></tr></table></figure>
+<h1 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h1><p>字符用 Char<br> 类型表示。它们不能直接当作数字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fun check(c: Char) &#123;</div><div class="line">    if (c == 1) &#123; // 错误：类型不兼容</div><div class="line">        // ……</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>字符字面值用单引号括起来: ‘1’。 特殊字符可以用反斜杠转义。 支持这几个转义序列：\t、 \b、\n、\r、\’、\”、\和 \$。 编码其他字符要用 Unicode 转义序列语法：’\uFF00’。</p>
+<p>我们可以显式把字符转换为 <strong>Int </strong>数字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fun decimalDigitValue(c: Char): Int &#123;</div><div class="line">    if (c !in &apos;0&apos;..&apos;9&apos;)</div><div class="line">        throw IllegalArgumentException(&quot;Out of range&quot;)</div><div class="line">    return c.toInt() - &apos;0&apos;.toInt() // 显式转换为数字</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当需要可空引用时，像数字、字符会被装箱。装箱操作不会保留同一性。</p>
+<h1 id="布尔"><a href="#布尔" class="headerlink" title="布尔"></a>布尔</h1><p>布尔用 <strong>Boolean</strong>类型表示，它有两个值：<strong>true</strong> 和 <strong>false</strong>。<br>若需要可空引用布尔会被装箱。<br>内置的布尔运算有：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">|| – 短路逻辑或</div><div class="line">&amp;&amp; – 短路逻辑与</div><div class="line">! - 逻辑非</div></pre></td></tr></table></figure>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>数组在 Kotlin 中使用 Array类来表示，它定义了 get和 set 函数（按照运算符重载约定这会转变为 []）和 size属性，以及一些其他有用的成员函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">class Array&lt;T&gt; private constructor() &#123;</div><div class="line">    val size: Int</div><div class="line">    operator fun get(index: Int): T</div><div class="line">    operator fun set(index: Int, value: T): Unit</div><div class="line"></div><div class="line">    operator fun iterator(): Iterator&lt;T&gt;</div><div class="line">    // ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们可以使用库函数 <strong>arrayOf()</strong>来创建一个数组并传递元素值给它，这样<strong> arrayOf(1, 2, 3)</strong>创建了 array [1, 2, 3]。 或者，库函数 arrayOfNulls()可以用于创建一个指定大小、元素都为空的数组。<br>另一个选项是用接受数组大小和一个函数参数的工厂函数，用作参数的函数能够返回 给定索引的每个元素初始值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 创建一个 Array&lt;String&gt; 初始化为 [&quot;0&quot;, &quot;1&quot;, &quot;4&quot;, &quot;9&quot;, &quot;16&quot;]</div><div class="line">val asc = Array(5, &#123; i -&gt; (i * i).toString() &#125;)</div></pre></td></tr></table></figure>
+<p>如上所述，<strong> [] </strong>运算符代表调用成员函数 <strong>get()</strong>和 <strong>set()</strong>。</p>
+<blockquote>
+<p>注意: 与 Java 不同的是，Kotlin 中数组是不型变的（invariant）。这意味着 Kotlin 不让我们把 <strong>Array<string></string></strong>赋值给 <strong>Array<any></any></strong>，以防止可能的运行时失败（但是你可以使用 <strong>Array<out any=""></out></strong>）。</p>
+</blockquote>
+<p>Kotlin 也有无装箱开销的专门的类来表示原生类型数组: ByteArray、ShortArray、IntArray等等。这些类和 Array 并没有继承关系，但是 它们有同样的方法属性集。它们也都有相应的工厂方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val x: IntArray = intArrayOf(1, 2, 3)</div><div class="line">x[0] = x[1] + x[2]</div></pre></td></tr></table></figure>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><p>字符串用 String类型表示。字符串是不可变的。 字符串的元素——字符可以使用索引运算符访问: s[i]。 可以用 <em>for</em> 循环迭代字符串:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (c in str) &#123;</div><div class="line">    println(c)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>字符串字面值</strong></p>
+<p>Kotlin 有两种类型的字符串字面值: 转义字符串可以有转义字符，以及原生字符串可以包含换行和任意文本。转义字符串很像 Java 字符串:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">val s = &quot;Hello, world!\n&quot;</div></pre></td></tr></table></figure>
+<p>转义采用传统的反斜杠方式。参见上面的 字符]查看支持的转义序列。<br><em>原生字符串</em> 使用三个引号（”””）分界符括起来，内部没有转义并且可以包含换行和任何其他字符:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">val text = &quot;&quot;&quot;</div><div class="line">    for (c in &quot;foo&quot;)</div><div class="line">        print(c)</div><div class="line">&quot;&quot;&quot;</div></pre></td></tr></table></figure>
+<p>你可以通过 trimMargin函数去除前导空格：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">val text = &quot;&quot;&quot;</div><div class="line">    |Tell me and I forget.</div><div class="line">    |Teach me and I remember.</div><div class="line">    |Involve me and I learn.</div><div class="line">    |(Benjamin Franklin)</div><div class="line">    &quot;&quot;&quot;.trimMargin()</div></pre></td></tr></table></figure></p>
+<p>默认 <strong> | </strong>  用作边界前缀，但你可以选择其他字符并作为参数传入，比如 <strong>trimMargin(“&gt;”)</strong>。</p>
+<p><strong>字符串模板</strong></p>
+<p>字符串可以包含<em>模板表达式</em> ，即一些小段代码，会求值并把结果合并到字符串中。 模板表达式以美元符（$）开头，由一个简单的名字构成:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val i = 10</div><div class="line">val s = &quot;i = $i&quot; // 求值结果为 &quot;i = 10&quot;</div></pre></td></tr></table></figure>
+<p>或者用花括号扩起来的任意表达式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">val s = &quot;abc&quot;</div><div class="line">val str = &quot;$s.length is $&#123;s.length&#125;&quot; // 求值结果为 &quot;abc.length is 3&quot;</div></pre></td></tr></table></figure>
+<p>原生字符串和转义字符串内部都支持模板。 如果你需要在原生字符串中表示字面值 $字符（它不支持反斜杠转义），你可以用下列语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">val price = &quot;&quot;&quot;</div><div class="line">$&#123;&apos;$&apos;&#125;9.99</div><div class="line">&quot;&quot;&quot;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://github.com/TheSadFrog/2017/05/26/Kotlin基本类型/" data-id="cj910mkol000hx4fjxd9h2dq5" class="article-share-link" data-share="baidu" data-title="Kotlin基本类型">分享到</a>
+      
+
+      
+        <a href="https://github.com/TheSadFrog/2017/05/26/Kotlin基本类型/#disqus_thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-使用Kotlin-Android-Extensions" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/25/使用Kotlin-Android-Extensions/" class="article-date">
@@ -103,7 +251,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/25/使用Kotlin-Android-Extensions/" data-id="cj90yftus000zp4fjtrdre4sy" class="article-share-link" data-share="baidu" data-title="使用Kotlin Android Extensions">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/25/使用Kotlin-Android-Extensions/" data-id="cj910mkp10011x4fjh30b0z78" class="article-share-link" data-share="baidu" data-title="使用Kotlin Android Extensions">分享到</a>
       
 
       
@@ -158,7 +306,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/24/Kotlin环境搭建/" data-id="cj90yftu1000dp4fj58ss5ovv" class="article-share-link" data-share="baidu" data-title="Kotlin环境搭建">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/24/Kotlin环境搭建/" data-id="cj910mkop000lx4fjs9e4liyu" class="article-share-link" data-share="baidu" data-title="Kotlin环境搭建">分享到</a>
       
 
       
@@ -202,7 +350,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/22/Kotlin/" data-id="cj90yfttz000ap4fji5kwva11" class="article-share-link" data-share="baidu" data-title="Kotlin">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/22/Kotlin/" data-id="cj910mkon000jx4fjyxozdq33" class="article-share-link" data-share="baidu" data-title="Kotlin">分享到</a>
       
 
       
@@ -255,7 +403,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/14/git分支管理/" data-id="cj90yftum000rp4fj33r29qyv" class="article-share-link" data-share="baidu" data-title="git分支管理">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/14/git分支管理/" data-id="cj910mkow000vx4fj53danrre" class="article-share-link" data-share="baidu" data-title="git分支管理">分享到</a>
       
 
       
@@ -312,7 +460,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/05/10/git使用的tag/" data-id="cj90yftui000pp4fjkcud2kcw" class="article-share-link" data-share="baidu" data-title="git使用的tag">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/05/10/git使用的tag/" data-id="cj910mkot000rx4fjm4xwgn7c" class="article-share-link" data-share="baidu" data-title="git使用的tag">分享到</a>
       
 
       
@@ -390,7 +538,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/04/24/BottomNavigationView的使用/" data-id="cj90yfttn0001p4fjs132b2l6" class="article-share-link" data-share="baidu" data-title="BottomNavigationView 的使用">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/04/24/BottomNavigationView的使用/" data-id="cj910mko90007x4fjrjm4zz0t" class="article-share-link" data-share="baidu" data-title="BottomNavigationView 的使用">分享到</a>
       
 
       
@@ -432,7 +580,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/04/10/测试，怎么又不行了/" data-id="cj90yftuv0011p4fjj1wefw0a" class="article-share-link" data-share="baidu" data-title="测试，怎么又不行了">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/04/10/测试，怎么又不行了/" data-id="cj910mkp30013x4fjtzs3ix2l" class="article-share-link" data-share="baidu" data-title="测试，怎么又不行了">分享到</a>
       
 
       
@@ -484,7 +632,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/04/08/git提交代码三部曲/" data-id="cj90yftuo000tp4fjhguftc60" class="article-share-link" data-share="baidu" data-title="git提交代码三部曲">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/04/08/git提交代码三部曲/" data-id="cj910mkov000ux4fjsoe0gdj8" class="article-share-link" data-share="baidu" data-title="git提交代码三部曲">分享到</a>
       
 
       
@@ -530,74 +678,11 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/25/新建分类/" data-id="cj90yftur000yp4fjxjps0b8x" class="article-share-link" data-share="baidu" data-title="新建分类">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/25/新建分类/" data-id="cj910mkp20012x4fjsk82gyer" class="article-share-link" data-share="baidu" data-title="新建分类">分享到</a>
       
 
       
         <a href="https://github.com/TheSadFrog/2017/03/25/新建分类/#disqus_thread" class="article-comment-link">评论</a>
-      
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Android Stuido 无线调试" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/16/Android Stuido 无线调试/" class="article-date">
-  <time datetime="2017-03-16T15:56:20.000Z" itemprop="datePublished">2017-03-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/16/Android Stuido 无线调试/">Android Stuido 无线调试</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><p>Android Studio 打开<br><strong>File&gt;Seting&gt;Plugins</strong>输入<strong>ADB WIFI</strong>点击Search in repositories搜索,选择ADB WIFI 右边点击<strong>Install</strong>就安装好了<br><img src="http://img.blog.csdn.net/20170413140259457?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhvdTkwNjc2NzIyMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="https://github.com/TheSadFrog"></p>
-<h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><ol>
-<li>你手机必须usb连接电脑，并且Android直接能运行。手机和电脑必须在同一局域网下</li>
-<li>Android Studio 打开<br><strong>Tools&gt;Android&gt;ADB WIFI&gt;ADB Restart</strong><br><img src="http://img.blog.csdn.net/20170413142310220?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhvdTkwNjc2NzIyMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="https://github.com/TheSadFrog"></li>
-<li>Android Studio 打开<br><strong>Tools&gt;Android&gt;ADB WIFI&gt;ADB USB to WIFI</strong>到此就可以无线使用了。现在可以拔掉usb后Android 还是显示有一个设备连接着。<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1>重启Android Studio不会自动连接，如果你没带数据线还是白忙活了半天。<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1></li>
-</ol>
-<p>使用adb 命令连接手机，即使有一天数据线坏了也照常可以使用。</p>
-<h2 id="1-配置环境变量"><a href="#1-配置环境变量" class="headerlink" title="1.配置环境变量"></a>1.配置环境变量</h2><p>win7右键点击计算机<strong>属性 &gt;高级系统设置&gt;环境变量</strong></p>
-<p><img src="http://img.blog.csdn.net/20170413153355021?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhvdTkwNjc2NzIyMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="https://github.com/TheSadFrog"><br>下面系统变量<strong>新建</strong><br><img src="http://img.blog.csdn.net/20170413142743864?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhvdTkwNjc2NzIyMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="https://github.com/TheSadFrog"><br>把你安装SDK目录下的<strong>platform-tool</strong> 和<strong>tools</strong> 路径配置上。<br>再把Android 加入到系统变量中<br><img src="http://img.blog.csdn.net/20170413143030276?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhvdTkwNjc2NzIyMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="https://github.com/TheSadFrog"><br>名字要对，<strong>%Android%</strong> 刚才新建的，注意要分好隔开。<br>现在你可以打开命令行 <strong>win+r</strong> 输入<strong>cmd</strong> 然后输入 <strong>adb</strong> 如果出现下面这个，就代表配置成功，如果出现不是系统命令就没配置成功。<br><img src="http://img.blog.csdn.net/20170413143425867?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhvdTkwNjc2NzIyMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="https://github.com/TheSadFrog"></p>
-<h2 id="2-使用adb-命令连接手机"><a href="#2-使用adb-命令连接手机" class="headerlink" title="2.使用adb 命令连接手机"></a>2.使用adb 命令连接手机</h2><blockquote>
-<p>adb connect &lt;你手机的ip地址&gt;  </p>
-</blockquote>
-<p>你手机局域网的网络IP地址，在手机<strong>设置&gt;WLAN</strong> 你连接的WiFi长按<strong>修改网络</strong>就看到ip地址。</p>
-<blockquote>
-<p>adb devices</p>
-</blockquote>
-<p>就可以看到你的手机连接，当然你也可以不用打开命令行工具。Android studio自带一个，在底部<strong>Terminal</strong> 这个和cmd 也是一样的。现在就可以运行你的程序，会有你的连接的手机。到时你把测试手机拿过来，搞好，直接就可以操作他的手机了。我不会告诉你</p>
-<blockquote>
-<p>adb uninstall &lt;包名可以卸载程序&gt;</p>
-</blockquote>
-<p>可以卸载程序哦。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="https://github.com/TheSadFrog/2017/03/16/Android Stuido 无线调试/" data-id="cj90yfttp0002p4fj6szxoy7x" class="article-share-link" data-share="baidu" data-title="Android Stuido 无线调试">分享到</a>
-      
-
-      
-        <a href="https://github.com/TheSadFrog/2017/03/16/Android Stuido 无线调试/#disqus_thread" class="article-comment-link">评论</a>
       
 
       
@@ -618,12 +703,19 @@
       <aside id="sidebar">
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Glide/">Glide</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Glide/">Glide</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -632,7 +724,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Glide/" style="font-size: 10px;">Glide</a> <a href="/tags/Kotlin/" style="font-size: 20px;">Kotlin</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Glide/" style="font-size: 10px;">Glide</a> <a href="/tags/Kotlin/" style="font-size: 20px;">Kotlin</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
     </div>
   </div>
 
@@ -641,7 +733,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">7</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -651,6 +743,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/10/21/分类显示/">分类显示</a>
+          </li>
         
           <li>
             <a href="/2017/10/21/VMware-Workstation-与-Device-Credential-Guard-不兼容/">VMware Workstation 与 Device/Credential Guard 不兼容</a>
@@ -666,10 +762,6 @@
         
           <li>
             <a href="/2017/06/26/你真的会使用google搜索？/">你真的会使用google搜索？</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/24/Kotlin-的list/">Kotlin 的list</a>
           </li>
         
       </ul>
