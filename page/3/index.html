@@ -16,6 +16,10 @@
 <meta name="twitter:title" content="Mr.Robot">
 <meta name="twitter:description" content="技术宅">
   
+    <link rel="alternative" href="/atom.xml" title="Mr.Robot" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css">
   <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
@@ -41,8 +45,20 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
         
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories/Android/">Android</a>
+        
+          <a class="main-nav-link" href="/categories/读书笔记/">读书笔记</a>
+        
+          <a class="main-nav-link" href="/About">About</a>
+        
       </nav>
       <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
@@ -61,6 +77,182 @@
 </header>
     <div class="outer">
       <section id="main">
+  
+    <article id="post-BottomNavigationView的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/24/BottomNavigationView的使用/" class="article-date">
+  <time datetime="2017-04-24T15:07:45.000Z" itemprop="datePublished">2017-04-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/24/BottomNavigationView的使用/">BottomNavigationView 的使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>不多说先上效果图</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2622167-ceeaf8a43bf52c11.gif?imageMogr2/auto-orient/strip" alt="zhouchatian.com"></p>
+<h1 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h1><blockquote>
+<p>compile ‘com.android.support:design:25.0.0’</p>
+</blockquote>
+<h1 id="添加控件"><a href="#添加控件" class="headerlink" title="添加控件"></a>添加控件</h1><p>在布局文件添加BottomNavigationView组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</div><div class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;match_parent&quot;</div><div class="line">    tools:context=&quot;com.zhouchatian.baseandroid.MainActivity&quot;&gt;</div><div class="line"></div><div class="line">    &lt;TextView</div><div class="line">        android:id=&quot;@+id/text&quot;</div><div class="line">        android:layout_width=&quot;wrap_content&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:textSize=&quot;18sp&quot;</div><div class="line">        android:layout_centerInParent=&quot;true&quot;/&gt;</div><div class="line"></div><div class="line">    &lt;android.support.design.widget.BottomNavigationView</div><div class="line">        android:id=&quot;@+id/navigation&quot;</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:layout_alignParentBottom=&quot;true&quot;</div><div class="line">        app:menu=&quot;@menu/navigation&quot;/&gt;</div><div class="line"></div><div class="line">&lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure>
+<h1 id="添加按钮"><a href="#添加按钮" class="headerlink" title="添加按钮"></a>添加按钮</h1><p>在res下创建navigation.xml 放在menu文件夹下，如果没有就创建一个menu文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line">    &lt;item</div><div class="line">        android:id=&quot;@+id/bottom_home&quot;</div><div class="line">        android:icon=&quot;@mipmap/ic_home_white_24dp&quot;</div><div class="line">        android:title=&quot;首页&quot; /&gt;</div><div class="line">    &lt;item</div><div class="line">        android:id=&quot;@+id/bottom_book&quot;</div><div class="line">        android:icon=&quot;@mipmap/ic_book_white_24dp&quot;</div><div class="line">        android:title=&quot;书本&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;item</div><div class="line">        android:id=&quot;@+id/bottom_collection&quot;</div><div class="line">        android:icon=&quot;@mipmap/ic_favorite_white_24dp&quot;</div><div class="line">        android:title=&quot;收藏&quot;/&gt;</div><div class="line"></div><div class="line">    &lt;item</div><div class="line">        android:id=&quot;@+id/bottom_setting&quot;</div><div class="line">        android:icon=&quot;@mipmap/ic_tv_white_24dp&quot;</div><div class="line">        android:title=&quot;设置&quot; /&gt;</div><div class="line">&lt;/menu&gt;</div></pre></td></tr></table></figure>
+<p>要说下的这个按钮只能创建3个到5个，多了或少了都会报错。</p>
+<h1 id="添加监听"><a href="#添加监听" class="headerlink" title="添加监听"></a>添加监听</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class MainActivity extends AppCompatActivity &#123;</div><div class="line">    private TextView mTextView;</div><div class="line">    private BottomNavigationView mNavigationView;</div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        mTextView = (TextView) findViewById(R.id.text);</div><div class="line">        mNavigationView = (BottomNavigationView) findViewById(R.id.navigation);</div><div class="line">        mNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() &#123;</div><div class="line">            @Override</div><div class="line">            public boolean onNavigationItemSelected(@NonNull MenuItem item) &#123;</div><div class="line">                mTextView.setText(item.getTitle().toString().toUpperCase());</div><div class="line">                return true;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样一个建的底部导航就做好了，控件使用简单，带来局限性，只有修改一些。</p>
+<h1 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h1><p>app:itemIconTint=”#FFFFFF”设置图标的颜色</p>
+<p>app:itemTextColor=”#FFFFFF”设置文字的颜色</p>
+<p>app:itemBackground=”@color/colorPrimary” 设置背景色</p>
+<p>如果不设置就是上图的颜色，官方提供了三个颜色</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2622167-41b6b08439b239af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="zhouchatian.com"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;android.support.design.widget.BottomNavigationView</div><div class="line">        android:id=&quot;@+id/navigation&quot;</div><div class="line">        android:layout_width=&quot;match_parent&quot;</div><div class="line">        android:layout_height=&quot;wrap_content&quot;</div><div class="line">        android:layout_alignParentBottom=&quot;true&quot;</div><div class="line">        app:itemIconTint=&quot;#FFFFFF&quot;</div><div class="line">        app:itemTextColor=&quot;#FFFFFF&quot;</div><div class="line">        app:itemBackground=&quot;@color/colorPrimary&quot;</div><div class="line">        app:menu=&quot;@menu/navigation&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>当然你也可以在代码中设置</p>
+<blockquote>
+<p>setItemBackgroundResource(int  resId)<br>setItemIconTintList(ColorStateList  tint)<br>setItemTextColor(ColorStateList  textColor)</p>
+</blockquote>
+<p>在实际开发中使用item.getItemId()使用switch来判断选中了哪一个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">mNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() &#123;</div><div class="line">            @Override</div><div class="line">            public boolean onNavigationItemSelected(@NonNull MenuItem item) &#123;</div><div class="line">                switch (item.getItemId()) &#123;</div><div class="line">                    case R.id.bottom_home:</div><div class="line">                        mTextView.setText(item.getTitle());</div><div class="line">                        break;</div><div class="line">                    case R.id.bottom_book:</div><div class="line">                        mTextView.setText(item.getTitle());</div><div class="line">                        break;</div><div class="line">                    case R.id.bottom_collection:</div><div class="line">                        mTextView.setText(item.getTitle());</div><div class="line">                        break;</div><div class="line">                    case R.id.bottom_setting:</div><div class="line">                        mTextView.setText(item.getTitle());</div><div class="line">                        break;</div><div class="line">                &#125;</div><div class="line">                return true;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
+<p>其实这个还有另外一个监听</p>
+<blockquote>
+<p>BottomNavigationView.OnNavigationItemReselectedListener</p>
+</blockquote>
+<p>官方解释用于重选的监听，特意提下是希望各位用的时候别选错了。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="1-默认选中的是第一个，但是我们要默认选中其他的怎么办？"><a href="#1-默认选中的是第一个，但是我们要默认选中其他的怎么办？" class="headerlink" title="1. 默认选中的是第一个，但是我们要默认选中其他的怎么办？"></a>1. 默认选中的是第一个，但是我们要默认选中其他的怎么办？</h3><p>官方提供了两个方法</p>
+<blockquote>
+<p>getSelectedItemId(int itemId)</p>
+</blockquote>
+<p>获得选中item的id，这时我们就可以使用另一个方法</p>
+<blockquote>
+<p>setSelectedItemId(int itemId)</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://github.com/TheSadFrog/2017/04/24/BottomNavigationView的使用/" data-id="cjbz3u4i70006b0fjt5iorusn" class="article-share-link" data-share="baidu" data-title="BottomNavigationView 的使用">分享到</a>
+      
+
+      
+        <a href="https://github.com/TheSadFrog/2017/04/24/BottomNavigationView的使用/#disqus_thread" class="article-comment-link">评论</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-测试，怎么又不行了" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/10/测试，怎么又不行了/" class="article-date">
+  <time datetime="2017-04-10T15:35:16.000Z" itemprop="datePublished">2017-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/10/测试，怎么又不行了/">测试，怎么又不行了</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://github.com/TheSadFrog/2017/04/10/测试，怎么又不行了/" data-id="cjbz3u4iv0012b0fjikp2q23n" class="article-share-link" data-share="baidu" data-title="测试，怎么又不行了">分享到</a>
+      
+
+      
+        <a href="https://github.com/TheSadFrog/2017/04/10/测试，怎么又不行了/#disqus_thread" class="article-comment-link">评论</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-git提交代码三部曲" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/08/git提交代码三部曲/" class="article-date">
+  <time datetime="2017-04-08T14:04:19.000Z" itemprop="datePublished">2017-04-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/08/git提交代码三部曲/">git提交代码三部曲</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="拉取远程库最新代码"><a href="#拉取远程库最新代码" class="headerlink" title="拉取远程库最新代码"></a>拉取远程库最新代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull</div></pre></td></tr></table></figure>
+<h2 id="把工作区的代码提交到暂存区"><a href="#把工作区的代码提交到暂存区" class="headerlink" title="把工作区的代码提交到暂存区"></a>把工作区的代码提交到暂存区</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add .</div></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add &lt;文件名字&gt;</div></pre></td></tr></table></figure>
+<p>add  .  代表所有文件，注意add 和 点之间有空格  </p>
+<h2 id="把暂存区的代码提交到历史区"><a href="#把暂存区的代码提交到历史区" class="headerlink" title="把暂存区的代码提交到历史区"></a>把暂存区的代码提交到历史区</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &quot;备注信息&quot;</div></pre></td></tr></table></figure>
+<h2 id="把历史区代码提交到远程库"><a href="#把历史区代码提交到远程库" class="headerlink" title="把历史区代码提交到远程库"></a>把历史区代码提交到远程库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push</div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20170407232212718?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhvdTkwNjc2NzIyMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="https://github.com/TheSadFrog"></p>
+<p>最后贴上git 的工作过程示意图</p>
+<p><img src="http://img.blog.csdn.net/20170407234220915?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhvdTkwNjc2NzIyMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="https://github.com/TheSadFrog"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="https://github.com/TheSadFrog/2017/04/08/git提交代码三部曲/" data-id="cjbz3u4ip000tb0fj3rxufecf" class="article-share-link" data-share="baidu" data-title="git提交代码三部曲">分享到</a>
+      
+
+      
+        <a href="https://github.com/TheSadFrog/2017/04/08/git提交代码三部曲/#disqus_thread" class="article-comment-link">评论</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-新建分类" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -93,7 +285,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/25/新建分类/" data-id="cjbz2g5uu000uqkfjnbyg7k9f" class="article-share-link">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/25/新建分类/" data-id="cjbz3u4it000zb0fjxtocg3rz" class="article-share-link" data-share="baidu" data-title="新建分类">分享到</a>
       
 
       
@@ -156,7 +348,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/16/Android Stuido 无线调试/" data-id="cjbz2g5u20001qkfjxr371g4b" class="article-share-link">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/16/Android Stuido 无线调试/" data-id="cjbz3u4hu0001b0fj96fjnlx6" class="article-share-link" data-share="baidu" data-title="Android Stuido 无线调试">分享到</a>
       
 
       
@@ -199,7 +391,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/16/Bug/" data-id="cjbz2g5u70003qkfj8280xcx8" class="article-share-link">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/16/Bug/" data-id="cjbz3u4hy0002b0fjdyhlwkyw" class="article-share-link" data-share="baidu" data-title="Bug">分享到</a>
       
 
       
@@ -247,7 +439,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/16/Hexo更换主题/" data-id="cjbz2g5uf0008qkfj92twhaqr" class="article-share-link">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/16/Hexo更换主题/" data-id="cjbz3u4ic000ab0fjb4u980pv" class="article-share-link" data-share="baidu" data-title="Hexo更换主题">分享到</a>
       
 
       
@@ -325,7 +517,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/09/Markdown简明语法/" data-id="cjbz2g5uk000eqkfjpkygw3d7" class="article-share-link">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/09/Markdown简明语法/" data-id="cjbz3u4ik000lb0fjptgn0d4e" class="article-share-link" data-share="baidu" data-title="Markdown简明语法">分享到</a>
       
 
       
@@ -396,7 +588,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/09/Hexo搭建个人博客/" data-id="cjbz2g5u90005qkfjsg456zdq" class="article-share-link">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/09/Hexo搭建个人博客/" data-id="cjbz3u4i90008b0fjfdvdvbs7" class="article-share-link" data-share="baidu" data-title="Hexo搭建个人博客">分享到</a>
       
 
       
@@ -447,7 +639,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="https://github.com/TheSadFrog/2017/03/09/hello-world/" data-id="cjbz2g5us000rqkfjf8ogir73" class="article-share-link">分享到</a>
+        <a data-url="https://github.com/TheSadFrog/2017/03/09/hello-world/" data-id="cjbz3u4iq000wb0fjdd3i38ei" class="article-share-link" data-share="baidu" data-title="Hello World">分享到</a>
       
 
       
@@ -469,6 +661,92 @@
   </nav>
 </section>
       
+      <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Glide/">Glide</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Glide/" style="font-size: 10px;">Glide</a> <a href="/tags/Kotlin/" style="font-size: 20px;">Kotlin</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/03/读书笔记/">读书笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/03/Hexo-的分类/">Hexo 的分类</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/03/测试-1/">测试</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/02/测试/">测试</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/24/分类就是不行吗/">分类就是不行吗</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="https://github.com/Siomt" target="_blank">GitHub</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
     </div>
     <footer id="footer">
   
@@ -481,6 +759,16 @@
 </footer>
   </div>
   <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories/Android/" class="mobile-nav-link">Android</a>
+  
+    <a href="/categories/读书笔记/" class="mobile-nav-link">读书笔记</a>
+  
+    <a href="/About" class="mobile-nav-link">About</a>
   
 </nav>
   <!-- totop start -->
@@ -504,6 +792,30 @@
 
 
 <!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 
 <!-- 百度分享 end -->
 
